@@ -11,13 +11,13 @@ const TopBar = () => {
             </div>
             <div className="w-1/12 h-10">
                 <div className='size-1/3'>
-                    <img src={MinusIcon} className="object-fill"></img>
+                    <img src={MinusIcon} className="object-fill" />
                 </div>
                 <div className='size-1/3'>
-                    <img src={ResizeIcon} className="object-fill"></img>
+                    <img src={ResizeIcon} className="object-fill" />
                 </div>
                 <div className='size-1/3'>
-                    <img src={CloseIcon} className="object-fill"></img>
+                    <img src={CloseIcon} className="object-fill" />
                 </div>
             </div>
         </>
