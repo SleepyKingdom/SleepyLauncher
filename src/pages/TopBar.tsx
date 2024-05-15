@@ -17,7 +17,7 @@ const TopBar = () => {
                     <img src={ResizeIcon} className="object-fill" />
                 </div>
                 <div className='size-1/3'>
-                    <img src={CloseIcon} className="object-fill" />
+                    <img src={CloseIcon} className="object-fill" width="150" />
                 </div>
             </div>
         </>
