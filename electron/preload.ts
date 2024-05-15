@@ -1,5 +1,10 @@
 import { ipcRenderer, contextBridge } from 'electron'
 
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  closeWindow: () => ipcRenderer.send('close-window')
+});
+
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld('ipcRenderer', {
   on(...args: Parameters<typeof ipcRenderer.on>) {

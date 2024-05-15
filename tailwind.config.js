@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   mode: 'jit',
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        '1238': '77375rem',
+      },
       fontFamily: {
         h1:['Alegreya Sans SC', 'sans-serif'],
         p:['Alegreya', 'serif']

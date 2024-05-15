@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 //import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -32,7 +32,7 @@ function createWindow() {
     height: 720,
     /*x: randomX,
     y: randomY,*/
-    frame: true,
+    frame: false,
     resizable: false,
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
     webPreferences: {
@@ -63,6 +63,14 @@ app.on('window-all-closed', () => {
   }
 })
 
+ipcMain.on('close-all-windows', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+    win = null
+  }
+  }
+);
+
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
@@ -72,3 +80,8 @@ app.on('activate', () => {
 })
 
 app.whenReady().then(createWindow)
+
+
+
+
+
