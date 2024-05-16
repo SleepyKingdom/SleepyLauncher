@@ -26,10 +26,10 @@ const TopBar = () => {
         <header className="h-28">
             <nav className="flex justify-between">
                 <div className="flex-grow">
-                    <div className="draggable bg-gray-400 h-10 p-2">
+                    <div className="draggable h-10 p-2 ">
                     </div>
                 </div>
-                <div className="icon-bar flex bg-gray-500">
+                <div className="icon-bar flex bg-gray-500 border-solid border-b-2 border-l-2 border-red-600">
                     <Icon src={MinusIcon} className="hover:bg-gray-300 h-10 w-10 p-2" />
                     <Icon src={windowSizeState()} className="hover:bg-gray-300 h-10 w-10 p-2" />
 
