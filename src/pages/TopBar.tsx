@@ -20,14 +20,14 @@ function TopBar() {
         <header className="h-28">
             <nav className="flex justify-between">
                 <div className="flex-grow">
-                    <div className="draggable h-10 p-2 "></div>
+                    <div className="draggable h-8 p-1"></div>
                 </div>
                 <div className="icon-bar flex bg-gradient-to-br from-purple-700 to-purple-900 border-solid border-b-2 border-l-2 border-gradient-to-br border-purple-700 rounded-bl-lg">
-                    <Icon src={MinusIcon} className="hover:bg-gradient-to-br from-gray-300 to-gray-500 h-10 w-10 p-2 rounded-bl-lg" />
-                    <button onClick={handleResizeClick} className="hover:bg-gradient-to-br from-gray-300 to-gray-500 h-10 w-10 p-2">
+                    <Icon src={MinusIcon} className="hover:bg-gray-500 h-8 w-8 p-2 rounded-bl-lg red" />
+                    <button onClick={handleResizeClick} className="hover:bg-gray-500 h-8 w-8 p-1">
                         <Icon src={getResizeIcon()} />
                     </button>
-                    <Icon src={CloseIcon} className="hover:bg-gradient-to-br from-red-700 to-red-950 h-10 w-10 p-2" />
+                    <Icon src={CloseIcon} className="hover:bg-red-500 h-8 w-8 p-1" />
                 </div>
             </nav>
         </header>
