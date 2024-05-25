@@ -9,7 +9,6 @@ import Icon from '../modules/Icons'
 //import { electron } from 'vite-plugin-electron/simple';
 
 
-
 function TopBar() {
     const [resizeState, setResizeState] = React.useState(1);
 
