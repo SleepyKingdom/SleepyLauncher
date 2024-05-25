@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom'
 
 // Component imports
 import TopBar from './components/TopBar'
-import SettingsBar from './components/SettingsBar';
 
 //Function imports
 import useDisableCopyPaste from './functions/useDisableCopyPaste'
@@ -20,7 +19,6 @@ function App() {
 
       <div className='select-none h-screen w-screen bg-gradient-to-br from-purple-700 to-purple-950'>
         <TopBar />
-        <SettingsBar />
         <Outlet />
       </div>
     </>

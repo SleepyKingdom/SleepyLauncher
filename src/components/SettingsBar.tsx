@@ -13,7 +13,7 @@ const SettingsBar = () => {
                 <button className='h-16 w-16 p-4 bg-gray-700 shadow-md shadow-gray-800 mr-4 rounded-md hover:bg-gray-600 hover:rounded-full'>
                     <Icon src={UserIcon} />
                 </button>
-                <Link to="/settingsPage">
+                <Link to="/settingspage">
                     <button className='h-16 w-16 p-4 bg-gray-700 shadow-md shadow-gray-800 mr-4 rounded-md hover:bg-gray-600 hover:rounded-full'>
                         <Icon src={SettingsIcon} />
                     </button>

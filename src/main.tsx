@@ -7,6 +7,7 @@ import './index.css'
 //import pages for router
 import ErrorPage from "./pages/ErrorPage.tsx"
 import Home from "./pages/Home.tsx"
+import SettingsPage from "./pages/SettingsPage.tsx"
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />
       },
+      {
+        path: "/settingspage",
+        element: <SettingsPage />
+      }
     ],
   },
 ]);
