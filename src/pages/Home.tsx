@@ -1,9 +1,6 @@
-import NotificationCard from "../modules/NotificationCard"
-
 const Home = () => {
     return (
         <>
-            <NotificationCard />
         </>
     )
 }

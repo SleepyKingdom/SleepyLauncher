@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const ErrorPage = () => {
     return (
         <>
@@ -10,6 +12,7 @@ const ErrorPage = () => {
                         <h1 className="font-extrabold text-5xl text-center text-white leading-tight mt-4">
                             You are all alone here
                         </h1>
+                        <Link to="/"><button className='font-extrabold text-5xl text-center text-white leading-tight mt-4'>Go back</button></Link>
                         <p className="font-extrabold text-8xl my-44 text-white animate-bounce">
                             404
                         </p>
