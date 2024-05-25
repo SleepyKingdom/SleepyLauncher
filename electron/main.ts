@@ -34,7 +34,7 @@ function createWindow() {
     y: randomY,*/
     frame: false,
     resizable: false,
-    icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
+    icon: path.join(process.env.VITE_PUBLIC, 'launcherIconColor.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
       nodeIntegration: true,
@@ -54,6 +54,28 @@ function createWindow() {
     win.loadFile(path.join(RENDERER_DIST, 'index.html'))
   }
 }
+
+
+// Minimize window
+ipcMain.on('minimize-window', () => {
+  win?.minimize();
+});
+
+// Toggle fullscreen
+ipcMain.on('toggle-fullscreen', () => {
+  const isFullscreen = win?.isFullScreen() || false;
+  win?.setFullScreen(!isFullscreen);
+});
+
+// Quit the application
+ipcMain.on('quit-app', () => {
+  app.quit();
+  win = null;
+});
+
+
+
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
