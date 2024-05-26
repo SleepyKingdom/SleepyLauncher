@@ -4,7 +4,9 @@ import SettingsBar from '../components/SettingsBar';
 const Home = () => {
     return (
         <>
-            <SettingsBar />
+            <div className='mt-8 h-screen w-screen'>
+                <SettingsBar />
+            </div>
         </>
     )
 }

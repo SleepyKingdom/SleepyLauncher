@@ -30,13 +30,13 @@ function TopBar() {
     }
 
     return (
-        <header className="h-auto mb-8">
+        <header className="h-auto">
             <nav className="flex justify-between">
                 <div className="flex-grow">
                     <div className="draggable h-8 p-1"></div>
                 </div>
-                <div className="icon-bar flex bg-gradient-to-br from-purple-700 to-purple-900 border-solid border-b-2 border-l-2 border-gradient-to-br border-purple-700 rounded-bl-lg">
-                    <button onClick={handleMinimizeClick} className="hover:bg-gray-500 h-8 w-8 p-2 rounded-bl-lg">
+                <div className="icon-bar flex bg-gradient-to-br from-purple-700 to-purple-900 border-solid border-b-2 border-l-2 border-gradient-to-br border-purple-700 ">
+                    <button onClick={handleMinimizeClick} className="hover:bg-gray-500 h-8 w-8 p-2">
                         <Icon src={MinusIcon} />
                     </button>
                     <button onClick={handleResizeClick} className="hover:bg-gray-500 h-8 w-8 p-1">

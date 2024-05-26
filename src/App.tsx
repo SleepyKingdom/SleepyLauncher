@@ -17,9 +17,12 @@ function App() {
   return (
     <>
 
-      <div className='select-none h-screen w-screen bg-gradient-to-br from-purple-700 to-purple-950'>
+      <div className='select-none screen-full h-screen bg-gradient-to-br from-purple-700 to-purple-950'>
         <TopBar />
-        <Outlet />
+        <div className='m-10'>
+
+          <Outlet />
+        </div>
       </div>
     </>
   )
