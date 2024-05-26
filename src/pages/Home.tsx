@@ -1,4 +1,4 @@
-import SettingsBar from '../components/SettingsBar';
+import SettingsBar from '../modules/SettingsBar';
 
 
 const Home = () => {

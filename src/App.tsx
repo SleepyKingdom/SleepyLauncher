@@ -2,7 +2,7 @@
 import { Outlet } from 'react-router-dom'
 
 // Component imports
-import TopBar from './components/TopBar'
+import TopBar from './modules/TopBar'
 
 //Function imports
 import useDisableCopyPaste from './functions/useDisableCopyPaste'

@@ -5,7 +5,7 @@ import CloseIcon from '../assets/icons/close_icon.png'
 import ResizeBigIcon from '../assets/icons/resize_big_icon.png'
 import ResizeSmallIcon from '../assets/icons/resize_small_icon.png'
 import MinusIcon from '../assets/icons/minus_icon.png'
-import Icon from '../modules/Icons'
+import Icon from './Icons'
 //import { electron } from 'vite-plugin-electron/simple';
 
 

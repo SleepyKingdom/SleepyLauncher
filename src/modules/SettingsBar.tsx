@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Icon from "../modules/Icons"
+import Icon from "./Icons"
 
 // Icon imports
 import UserIcon from '../assets/icons/user_icon.png'
