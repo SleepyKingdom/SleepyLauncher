@@ -1,13 +1,15 @@
-import Card from "../modules/Card"
+import Card from "../components/Card"
 
 const SettingsPage = () => {
     return (
         <>
-            <Card className="bg-gray-600">
-                <div className="">
-                    <h1>Settings</h1>
-                </div>
-            </Card>
+            <div className="w-200 h-100">
+                <Card>
+                    <div className="w-full h-100">
+                        <h1>Settings</h1>
+                    </div>
+                </Card>
+            </div>
         </>
     )
 }
