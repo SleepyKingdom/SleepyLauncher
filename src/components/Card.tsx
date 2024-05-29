@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ children }) => {
     return (
-        <div className="w-full h-full card shadow-2xl">
+        <div className="w-full h-full card shadow-2xl rounded-md">
             {children}
         </div>
     )
