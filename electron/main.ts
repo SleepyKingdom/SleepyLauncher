@@ -30,8 +30,6 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1280,
     height: 720,
-    /*x: randomX,
-    y: randomY,*/
     frame: false,
     resizable: false,
     icon: path.join(process.env.VITE_PUBLIC, 'launcherIconColor.png'),
