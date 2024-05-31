@@ -1,7 +1,7 @@
 {
     "settings": {
-        "autostart": true,
-        "minimize on start": false
+        "autostart": false,
+        "minimizeOnStart": true
 
     }
 }
