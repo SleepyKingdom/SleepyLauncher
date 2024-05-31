@@ -25,9 +25,21 @@ const SettingsPage: React.FC = () => {
             ...prevState,
             [id]: checked
         }));
+
+        // Update the JSON settings object
+        if (id === "first") {
+            settings.settings.autostart = checked;
+        } else if (id === "second") {
+            settings.settings.minimizeOnStart = checked;
+        } else if (id === "third") {
+            // Assuming there is a third setting in the JSON to update
+            settings.settings.third = checked;
+        }
+
+        // Optionally save the settings object to a file or API
+        // For example:
+        // saveSettings(settings);
     };
-
-
 
     return (
         <>
