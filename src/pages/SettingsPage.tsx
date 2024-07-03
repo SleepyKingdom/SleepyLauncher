@@ -27,9 +27,9 @@ const SettingsPage: React.FC = () => {
         }));
 
         // Update the JSON settings object
-        if (id === "first") {
+        if (id === "autostart") {
             settings.settings.autostart = checked;
-        } else if (id === "second") {
+        } else if (id === "minimizeOnStart") {
             settings.settings.minimizeOnStart = checked;
         } else if (id === "third") {
             // Assuming there is a third setting in the JSON to update
@@ -57,11 +57,11 @@ const SettingsPage: React.FC = () => {
                             <h2 className='text-center text-white text-2xl mb-4'>Settings</h2>
                             <form className='space-y-4 text-center text-white'>
                                 <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
-                                    <input type="checkbox" id="first" checked={checkedState.autostart} onChange={handleCheckboxChange} />
+                                    <input type="checkbox" id="autostart" checked={checkedState.autostart} onChange={handleCheckboxChange} />
                                     <p className='pl-4'>Do this</p>
                                 </div>
                                 <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
-                                    <input type="checkbox" id="second" checked={checkedState.minimizeOnStart} onChange={handleCheckboxChange} />
+                                    <input type="checkbox" id="minimizeOnStart" checked={checkedState.minimizeOnStart} onChange={handleCheckboxChange} />
                                     <p className='pl-4'>Do that</p>
                                 </div>
                                 <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
