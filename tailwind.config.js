@@ -13,7 +13,10 @@ export default {
       },
       gridTemplateColumns: {
         '70/30': '70% 28%',
-      }
+      },
+      animation: {
+        'spin-slow': 'spin 2s linear infinite', // Adjust the timing (2s) if you want a slower or faster spin
+      },
     },
   },
   plugins: [],

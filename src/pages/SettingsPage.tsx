@@ -1,9 +1,7 @@
 import React, { useState, ChangeEvent } from 'react'
-import { Link } from 'react-router-dom';
 
 import Card from "../components/Card";
-import Icon from "../components/Icons";
-import BackIcon from "../assets/icons/arrow_back_icon.png";
+
 
 import settings from '../data/settings.json'
 
@@ -43,14 +41,7 @@ const SettingsPage: React.FC = () => {
 
     return (
         <>
-            <div className="p-8 bg-gradient-to-r from-purple-600 to-purple-800 h-auto rounded-xl">
-                <div className='flex flex-row-reverse mb-8'>
-                    <Link to="/">
-                        <button className='h-16 w-16 p-4 bg-gray-700 shadow-md shadow-gray-800 mr-4 rounded-md hover:bg-gray-600 hover:rounded-full'>
-                            <Icon src={BackIcon} />
-                        </button>
-                    </Link>
-                </div>
+            <div className="p-8 h-auto rounded-xl">
                 <div className="max-w-auto mx-auto">
                     <Card>
                         <div className="p-6">

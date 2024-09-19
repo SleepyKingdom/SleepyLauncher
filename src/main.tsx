@@ -8,6 +8,9 @@ import './index.css'
 import ErrorPage from "./pages/ErrorPage.tsx"
 import Home from "./pages/Home.tsx"
 import SettingsPage from "./pages/SettingsPage.tsx"
+import LoginPage from "./pages/LoginPage.tsx"
+import KingdomsRise from "./pages/KingdomsRise.tsx"
+import SleepyLegends from "./pages/SleepyLegends.tsx"
 
 const router = createBrowserRouter([
   {
@@ -21,9 +24,22 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/settingspage",
+        path: "/settings",
         element: <SettingsPage />
+      },
+      {
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "/kingdomsrise",
+        element: <KingdomsRise />
+      },
+      {
+        path: "/sleepylegends",
+        element: <SleepyLegends />
       }
+
     ],
   },
 ]);

@@ -1,7 +1,7 @@
 const LoginForm = () => {
     return (
         <>
-            <div className="max-w-md w-full bg-gradient-to-r from-blue-800 to-purple-600 rounded-xl shadow-2xl overflow-hidden p-8 space-y-8 animate-slide-in-from-left">
+            <div className="max-w-md w-full bg-transparent rounded-xl shadow-2xl overflow-hidden p-8 space-y-8 animate-slide-in-from-left">
                 <h2 className="text-center text-4xl font-extrabold text-white animate-appear delay-2000">
                     Welcome
                 </h2>
@@ -62,8 +62,8 @@ const LoginForm = () => {
                 </form>
                 <div className="text-center text-gray-300">
                     Don't have an account?
-                    <a className="text-purple-300 hover:underline" href="#">
-                        Sign up
+                    <a className="text-purple-300 hover:underline pl-2" href="#">
+                        Sign up!
                     </a>
                 </div>
             </div>
