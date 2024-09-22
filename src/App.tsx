@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 // Component imports
 import TopBar from './modules/TopBar'
-import SideBar from './modules/Sidebar'
+import SideBar from './modules/SideBar'
 
 // Function imports
 import useDisableCopyPaste from './functions/useDisableCopyPaste'
