@@ -30,7 +30,7 @@ function TopBar() {
                 <div className="flex-grow">
                     <div className="draggable h-8 p-1"></div>
                 </div>
-                <div className="icon-bar flex bg-gradient-to-br from-purple-700 to-purple-900 border-solid border-b-2 border-l-2 border-gradient-to-br border-purple-700 ">
+                <div className="icon-bar flex bg-transparent border-solid border-b-2 border-l-2 border-transparent">
                     <button onClick={handleMinimizeClick} className="hover:bg-gray-500 h-8 w-8 p-2">
                         <Icon icon={"check_indeterminate_small"} />
                     </button>

@@ -9,6 +9,7 @@ export default {
       },
       fontFamily: {
         h1:['Alegreya Sans SC', 'sans-serif'],
+        h2:['Alegreya Sans SC', 'sans-serif'],
         p:['Alegreya', 'serif']
       },
       gridTemplateColumns: {

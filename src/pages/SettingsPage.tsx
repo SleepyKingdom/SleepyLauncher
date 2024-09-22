@@ -47,15 +47,15 @@ const SettingsPage: React.FC = () => {
                         <div className="p-6">
                             <h2 className='text-center text-white text-2xl mb-4'>Settings</h2>
                             <form className='space-y-4 text-center text-white'>
-                                <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
+                                <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="autostart" checked={checkedState.autostart} onChange={handleCheckboxChange} />
                                     <p className='pl-4'>Do this</p>
                                 </div>
-                                <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
+                                <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="minimizeOnStart" checked={checkedState.minimizeOnStart} onChange={handleCheckboxChange} />
                                     <p className='pl-4'>Do that</p>
                                 </div>
-                                <div className='flex items-center py-2 px-4 bg-purple-500 rounded-md shadow-md'>
+                                <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="third" checked={checkedState.third} onChange={handleCheckboxChange} />
                                     <p className='pl-4 '>Do this</p>
                                 </div>

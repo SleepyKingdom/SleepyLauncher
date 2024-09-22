@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 // Component imports
 import TopBar from './modules/TopBar'
-import SideBar from './modules/SideBar'
+import SideBar from './modules/Sidebar'
 
 // Function imports
 import useDisableCopyPaste from './functions/useDisableCopyPaste'
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div className="select-none h-screen bg-gradient-to-br from-purple-700 to-purple-950 flex flex-col">
+      <div className="select-none h-screen bg-gray-700 flex flex-col">
         {/* TopBar */}
         <TopBar />
 
