@@ -9,8 +9,9 @@ import ErrorPage from "./pages/ErrorPage.tsx"
 import Home from "./pages/Home.tsx"
 import SettingsPage from "./pages/SettingsPage.tsx"
 import LoginPage from "./pages/LoginPage.tsx"
-import KingdomsRise from "./pages/KingdomsRise.tsx"
-import SleepyLegends from "./pages/SleepyLegends.tsx"
+import KingdomsRise from "./pages/KingdomsRisePage.tsx"
+import SleepyLegends from "./pages/SleepyLegendsPage.tsx"
+import SignUpPage from "./pages/SignUpPage.tsx"
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />
+      },
+      {
+        path: "/signup",
+        element: <SignUpPage />
       },
       {
         path: "/kingdomsrise",

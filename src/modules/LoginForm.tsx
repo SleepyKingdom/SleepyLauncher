@@ -62,7 +62,7 @@ const LoginForm = () => {
                 </form>
                 <div className="text-center text-gray-300">
                     Don't have an account?
-                    <a className="text-purple-300 hover:underline pl-2" href="#">
+                    <a className="text-purple-300 hover:underline pl-2" href="/signup">
                         Sign up!
                     </a>
                 </div>

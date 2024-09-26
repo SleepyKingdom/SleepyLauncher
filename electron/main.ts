@@ -32,7 +32,7 @@ function createWindow() {
     height: 720,
     frame: false,
     resizable: false,
-    icon: path.join(process.env.VITE_PUBLIC, 'launcherIconColor.png'),
+    icon: path.join(process.env.VITE_PUBLIC, 'launcherIcon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
       nodeIntegration: true,
