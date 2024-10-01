@@ -1,7 +1,8 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 //import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import path from 'node:path'
+import path from 'path'
+import fs from 'fs';
 
 //const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -100,6 +101,32 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+// Path to store the settings file
+const settingsPath = path.join(app.getPath('userData'), 'settings.json');
+
+// Load settings from the file
+ipcMain.on('load-settings', (event) => {
+  if (fs.existsSync(settingsPath)) {
+    const data = fs.readFileSync(settingsPath, 'utf-8');
+    event.returnValue = JSON.parse(data);  // Sync response with sendSync
+  } else {
+    // Default settings if the file doesn't exist
+    event.returnValue = {
+      autostart: false,
+      minimizeOnStart: false,
+      third: false
+    };
+  }
+});
+
+// Save settings to the file
+ipcMain.on('save-settings', (_event, settings) => {
+  fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2), 'utf-8');
+});
+
+
+
 
 app.whenReady().then(createWindow)
 

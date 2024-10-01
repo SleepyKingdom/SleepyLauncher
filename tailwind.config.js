@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+
+import { nextui } from '@nextui-org/react';
+
 export default {
   mode: 'jit',
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}', 
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
       spacing: {
@@ -15,10 +21,12 @@ export default {
       gridTemplateColumns: {
         '70/30': '70% 28%',
       },
+      
       animation: {
         'spin-slow': 'spin 2s linear infinite', // Adjust the timing (2s) if you want a slower or faster spin
       },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()],
 }

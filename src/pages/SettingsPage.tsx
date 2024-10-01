@@ -1,42 +1,40 @@
-import React, { useState, ChangeEvent } from 'react'
-
+import React, { useState, ChangeEvent } from 'react';
 import Card from "../components/Card";
+//import Checkbox from '../components/Checkbox';
 
+// Electron's ipcRenderer
+const { ipcRenderer } = window.require('electron');
 
-import settings from '../data/settings.json'
+// Define settings interface
+interface Settings {
+    autostart: boolean;
+    minimizeOnStart: boolean;
+    third: boolean;
+}
 
+// Function to load settings from the main process (via IPC)
+const loadSettings = (): Settings => {
+    return ipcRenderer.sendSync('load-settings');
+};
+
+// Function to save settings via IPC
+const saveSettings = (settings: Settings) => {
+    ipcRenderer.send('save-settings', settings);
+};
 
 const SettingsPage: React.FC = () => {
-
-    const autostartSetting = settings.settings.autostart
-    const minimizeOnStartSetting = settings.settings.minimizeOnStart
-
-    const [checkedState, setCheckedState] = useState({
-        autostart: autostartSetting,
-        minimizeOnStart: minimizeOnStartSetting,
-        third: false
-    });
+    const [checkedState, setCheckedState] = useState<Settings>(loadSettings);
 
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { id, checked } = event.target;
-        setCheckedState(prevState => ({
-            ...prevState,
-            [id]: checked
-        }));
-
-        // Update the JSON settings object
-        if (id === "autostart") {
-            settings.settings.autostart = checked;
-        } else if (id === "minimizeOnStart") {
-            settings.settings.minimizeOnStart = checked;
-        } else if (id === "third") {
-            // Assuming there is a third setting in the JSON to update
-            settings.settings.third = checked;
-        }
-
-        // Optionally save the settings object to a file or API
-        // For example:
-        // saveSettings(settings);
+        setCheckedState((prevState: Settings) => {
+            const newState: Settings = {
+                ...prevState,
+                [id]: checked
+            };
+            saveSettings(newState); // Send the updated settings to the main process
+            return newState;
+        });
     };
 
     return (
@@ -49,15 +47,15 @@ const SettingsPage: React.FC = () => {
                             <form className='space-y-4 text-center text-white'>
                                 <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="autostart" checked={checkedState.autostart} onChange={handleCheckboxChange} />
-                                    <p className='pl-4'>Do this</p>
+                                    <p className='pl-4'>Autostart</p>
                                 </div>
                                 <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="minimizeOnStart" checked={checkedState.minimizeOnStart} onChange={handleCheckboxChange} />
-                                    <p className='pl-4'>Do that</p>
+                                    <p className='pl-4'>Minimize on start</p>
                                 </div>
                                 <div className='flex items-center py-2 px-4 bg-transparent rounded-md shadow-md'>
                                     <input type="checkbox" id="third" checked={checkedState.third} onChange={handleCheckboxChange} />
-                                    <p className='pl-4 '>Do this</p>
+                                    <p className='pl-4'>Third setting</p>
                                 </div>
                             </form>
                         </div>

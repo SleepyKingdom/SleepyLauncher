@@ -78,12 +78,12 @@ const SignUpPage = () => {
 
     return (
         <div className="flex items-center justify-center bg-transparent">
-            <div className="w-[600px] bg-transparent rounded-xl shadow-2xl overflow-hidden p-12">
-                <h2 className="text-center font-h1 text-4xl font-extrabold text-white mb-6">
+            <div className="w-[600px] bg-transparent rounded-xl shadow-2xl overflow-hidden px-8 pt-2 pb-8">
+                <h2 className="text-center font-h1 text-4xl font-extrabold text-white mb-4">
                     Sign Up
                 </h2>
-                <p className="text-center text-lg text-gray-200 mb-8">
-                    Create your account
+                <p className="text-center text-md text-gray-200 mb-4">
+                    Create your ... account
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="relative">
