@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/settings",
+        path: "/settings/*",
         element: <SettingsPage />
       },
       {

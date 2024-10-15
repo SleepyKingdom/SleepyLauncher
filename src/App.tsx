@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div className="select-none h-screen bg-gray-700 flex flex-col">
+      <div className="select-none h-screen w-screen bg-gray-700 flex flex-col">
         {/* TopBar */}
         <TopBar />
 
