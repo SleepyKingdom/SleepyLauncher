@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div className="select-none h-screen w-screen bg-gray-700 flex flex-col">
+      <div className="select-none h-screen w-screen bg-gray-600 flex flex-col">
         {/* TopBar */}
         <TopBar />
 
@@ -25,11 +25,8 @@ function App() {
           </div>
 
           {/* Content area that fills the remaining space */}
-          <div className="flex-grow p-6 overflow-auto">
-            <div className="flex items-center justify-center h-full">
-              <Outlet />
-            </div>
-
+          <div className="flex-grow overflow-auto">
+            <Outlet />
           </div>
         </div>
       </div>

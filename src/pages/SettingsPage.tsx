@@ -2,9 +2,9 @@ import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 
 const SettingsPage = () => {
     return (
-        <div className="flex h-full bg-gray-800">
-            <div className="flex-1 flex">
-                <nav className="w-64 bg-gray-800 text-gray-300 border-r border-gray-700">
+        <div className="flex h-full w-full bg-gray-700">
+            <div className="flex-1 flex overflow-hidden rounded-tr-2xl">
+                <nav className="w-64 bg-gray-700 text-gray-300 border-r border-gray-700">
                     <div className="p-4">
                         <h2 className="text-xs font-semibold text-gray-500 mb-4">ACCOUNT</h2>
                         <NavLink to="/settings/profile" className={({ isActive }) =>
@@ -45,7 +45,7 @@ const SettingsPage = () => {
                         }>Roadmaps</NavLink>
                     </div>
                 </nav>
-                <main className="flex-1 bg-white p-8">
+                <main className="flex-1 bg-gray-600 p-8 rounded-tr-2xl overflow-hidden">
                     <Routes>
                         <Route index element={<Navigate to="workspace" replace />} />
                         <Route path="general" element={<GeneralSettings />} />
@@ -65,6 +65,8 @@ const SettingsPage = () => {
         </div>
     );
 };
+
+
 
 const WorkspaceSettings = () => (
     <div>
