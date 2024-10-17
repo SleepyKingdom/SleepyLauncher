@@ -10,7 +10,7 @@ const KingdomsRise = () => {
                     />
                 </div>
                 <div className="mt-4 text-center">
-                    <h2 className="text-3xl font-semibold text-white">SleepyLegends</h2>
+                    <h2 className="text-3xl font-semibold text-gray-200">SleepyLegends</h2>
                     <p className="text-gray-300 text-lg">
                         Explore the lost lands of Somnoria and save the world from the Wrathveil Plague
                     </p>

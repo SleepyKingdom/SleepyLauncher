@@ -2,7 +2,7 @@ const LoginForm = () => {
     return (
         <>
             <div className="max-w-md w-full bg-transparent rounded-xl shadow-2xl overflow-hidden p-8 space-y-8 animate-slide-in-from-left">
-                <h2 className="text-center text-4xl font-extrabold text-white animate-appear delay-2000">
+                <h2 className="text-center text-4xl font-extrabold text-gray-200 animate-appear delay-2000">
                     Welcome
                 </h2>
                 <p className="text-center text-gray-200 animate-appear delay-3000">
@@ -12,7 +12,7 @@ const LoginForm = () => {
                     <div className="relative">
                         <input
                             placeholder="john@example.com"
-                            className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
+                            className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
                             required
                             id="email"
                             name="email"
@@ -28,7 +28,7 @@ const LoginForm = () => {
                     <div className="relative">
                         <input
                             placeholder="Password"
-                            className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
+                            className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
                             required
                             id="password"
                             name="password"
@@ -54,7 +54,7 @@ const LoginForm = () => {
                         </a>
                     </div>
                     <button
-                        className="w-full py-2 px-4 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-white font-semibold transition duration-200"
+                        className="w-full py-2 px-4 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-gray-200 font-semibold transition duration-200"
                         type="submit"
                     >
                         Sign In

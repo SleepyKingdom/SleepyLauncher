@@ -79,7 +79,7 @@ const SignUpPage = () => {
     return (
         <div className="flex items-center justify-center bg-transparent">
             <div className="w-[600px] bg-transparent rounded-xl shadow-2xl overflow-hidden px-8 pt-2 pb-8">
-                <h2 className="text-center font-h1 text-4xl font-extrabold text-white mb-4">
+                <h2 className="text-center font-h1 text-4xl font-extrabold text-gray-200 mb-4">
                     Sign Up
                 </h2>
                 <p className="text-center text-md text-gray-200 mb-4">
@@ -96,7 +96,7 @@ const SignUpPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="Last Name"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="username"
@@ -116,7 +116,7 @@ const SignUpPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="First Name"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="firstName"
@@ -134,7 +134,7 @@ const SignUpPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="Last Name"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="lastName"
@@ -154,7 +154,7 @@ const SignUpPage = () => {
                             onChange={handleInputChange}
                             required
                             placeholder="Email Address"
-                            className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                            className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                         />
                         <label
                             htmlFor="email"
@@ -175,7 +175,7 @@ const SignUpPage = () => {
                             required
                             placeholder="Phone Number"
                             pattern="\d{10}"
-                            className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                            className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                         />
                         <label
                             htmlFor="phoneNumber"
@@ -196,7 +196,7 @@ const SignUpPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="Password"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="password"
@@ -222,7 +222,7 @@ const SignUpPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="Confirm Password"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="confirmPassword"
@@ -236,7 +236,7 @@ const SignUpPage = () => {
 
                     <button
                         type="submit"
-                        className="w-full py-3 px-6 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-white text-lg font-semibold transition duration-200"
+                        className="w-full py-3 px-6 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-gray-200 text-lg font-semibold transition duration-200"
                     >
                         Sign Up
                     </button>

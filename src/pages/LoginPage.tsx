@@ -48,7 +48,7 @@ const LoginPage = () => {
         <div className="flex items-center justify-center h-full p-6">
             <div className="flex items-center justify-center bg-transparent">
                 <div className="w-[600px] bg-transparent rounded-xl shadow-2xl overflow-hidden p-12">
-                    <h2 className="text-center font-h1 text-4xl font-extrabold text-white mb-6">
+                    <h2 className="text-center font-h1 text-4xl font-extrabold text-gray-200 mb-6">
                         Login
                     </h2>
                     <p className="text-center text-lg text-gray-200 mb-8">
@@ -65,7 +65,7 @@ const LoginPage = () => {
                                     onChange={handleInputChange}
                                     required
                                     placeholder="Username"
-                                    className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                    className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                                 />
                                 <label
                                     htmlFor="username"
@@ -86,7 +86,7 @@ const LoginPage = () => {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="Password"
-                                className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
+                                className="peer h-10 w-full border-b-2 border-gray-300 text-gray-200 bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500 text-base"
                             />
                             <label
                                 htmlFor="password"
@@ -99,7 +99,7 @@ const LoginPage = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-3 px-6 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-white text-lg font-semibold transition duration-200"
+                            className="w-full py-3 px-6 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-gray-200 text-lg font-semibold transition duration-200"
                         >
                             Login
                         </button>
