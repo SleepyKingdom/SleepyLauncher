@@ -15,21 +15,21 @@ const SettingsPage = () => {
                             `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Connected Accounts
                         </NavLink>
-                        <NavLink to="/settings/apperance" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Apperance</NavLink>
                         <NavLink to="/settings/language" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Language</NavLink>
                     </div>
                     <div className="p-4">
                         <h2 className="text-xs font-semibold text-gray-500 mb-4">Client Settings</h2>
-                        <NavLink to="/settings/workspace" className={({ isActive }) =>
+                        <NavLink to="/settings/general" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Settings</NavLink>
-                        <NavLink to="/settings/members" className={({ isActive }) =>
+                        }>General Settings</NavLink>
+                        <NavLink to="/settings/apperance" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Members</NavLink>
+                        }>Apperance</NavLink>
+                        <NavLink to="/settings/mfa" className={({ isActive }) =>
+                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                        }>Multifactor Authentication</NavLink>
                         <NavLink to="/settings/upgrade" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Upgrade</NavLink>
@@ -52,11 +52,11 @@ const SettingsPage = () => {
                         <Route index element={<Navigate to="workspace" replace />} />
                         <Route path="account" element={<AccountSettings />} />
                         <Route path="connectedaccounts" element={<ConnectedAccounts />} />
-                        <Route path="apperance" element={<ApperianceSettings />} />
                         <Route path="language" element={<LanguageSettings />} />
 
-                        <Route path="workspace" element={<WorkspaceSettings />} />
-                        <Route path="members" element={<MembersSettings />} />
+                        <Route path="general" element={<GeneralSettings />} />
+                        <Route path="apperance" element={<ApperanceSettings />} />
+                        <Route path="mfa" element={<MultifactorAuthentication />} />
                         <Route path="upgrade" element={<UpgradeSettings />} />
                         <Route path="security" element={<SecuritySettings />} />
                         <Route path="templates" element={<TemplatesSettings />} />
@@ -71,12 +71,7 @@ const SettingsPage = () => {
 
 
 
-const WorkspaceSettings = () => (
-    <div>
-        <h1 className={placeHolderCSS}>Workspace Settings</h1>
-        {/* Add your workspace settings form or content here */}
-    </div>
-);
+
 
 // Placeholder components for other settings pages
 
@@ -84,9 +79,11 @@ const placeHolderCSS = "text-3xl font-bold mb-6 text-gray-200"
 
 const AccountSettings = () => <h1 className={placeHolderCSS}>My Account</h1>;
 const ConnectedAccounts = () => <h1 className={placeHolderCSS}>Connected Accounts</h1>;
-const ApperianceSettings = () => <h1 className={placeHolderCSS}>Apperiance</h1>;
 const LanguageSettings = () => <h1 className={placeHolderCSS}>Language</h1>;
-const MembersSettings = () => <h1 className={placeHolderCSS}>Members</h1>;
+
+const GeneralSettings = () => <h1 className={placeHolderCSS}>General Settings</h1>;
+const ApperanceSettings = () => <h1 className={placeHolderCSS}>Apperance</h1>;
+const MultifactorAuthentication = () => <h1 className={placeHolderCSS}>Multifactor Authentication</h1>;
 const UpgradeSettings = () => <h1 className={placeHolderCSS}>Upgrade</h1>;
 const SecuritySettings = () => <h1 className={placeHolderCSS}>Security</h1>;
 const TemplatesSettings = () => <h1 className={placeHolderCSS}>Templates</h1>;
