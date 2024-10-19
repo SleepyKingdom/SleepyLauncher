@@ -32,14 +32,14 @@ function Navigation() {
                             <span className="flex-1 ms-3 whitespace-nowrap">Kingdom's Rise</span>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/smt2" className="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-700 group">
                             <div className="flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-200">
                                 <span className="material-symbols-rounded">question_mark</span>
                             </div>
                             <span className="flex-1 ms-3 whitespace-nowrap">smt2</span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
 
                 {/* Bottom-aligned section (Settings and Login) */}
@@ -62,7 +62,7 @@ function Navigation() {
                     </li>
                 </ul>
             </div>
-        </aside>
+        </aside >
     );
 }
 

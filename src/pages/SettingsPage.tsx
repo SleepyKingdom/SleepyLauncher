@@ -1,5 +1,10 @@
 import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 
+import AccountSettings from './settings/AccountSettings';
+
+
+
+
 const SettingsPage = () => {
     return (
         <div className="flex h-full w-full">
@@ -8,43 +13,34 @@ const SettingsPage = () => {
                     <div className="p-4">
                         <h2 className="text-xs font-semibold text-gray-500 mb-4">ACCOUNT</h2>
                         <NavLink to="/settings/account" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>My Account
                         </NavLink>
                         <NavLink to="/settings/connectedaccounts" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Connected Accounts
                         </NavLink>
                         <NavLink to="/settings/language" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Language</NavLink>
                     </div>
                     <div className="p-4">
-                        <h2 className="text-xs font-semibold text-gray-500 mb-4">Client Settings</h2>
+                        <h2 className="text-xs font-semibold text-gray-500 mb-4">CLIENT SETTINGS</h2>
                         <NavLink to="/settings/general" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>General Settings</NavLink>
                         <NavLink to="/settings/apperance" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Apperance</NavLink>
                         <NavLink to="/settings/mfa" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Multifactor Authentication</NavLink>
-                        <NavLink to="/settings/upgrade" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Upgrade</NavLink>
                         <NavLink to="/settings/security" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Security</NavLink>
-                        <NavLink to="/settings/templates" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Templates</NavLink>
-                        <NavLink to="/settings/billing" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Billing</NavLink>
-                        <NavLink to="/settings/roadmaps" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-blue-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Roadmaps</NavLink>
+                        <NavLink to="/settings/web" className={({ isActive }) =>
+                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                        }>Web</NavLink>
                     </div>
                 </nav>
                 <main className="flex-1 bg-gray-600 p-8 rounded-tr-2xl overflow-hidden">
@@ -57,11 +53,8 @@ const SettingsPage = () => {
                         <Route path="general" element={<GeneralSettings />} />
                         <Route path="apperance" element={<ApperanceSettings />} />
                         <Route path="mfa" element={<MultifactorAuthentication />} />
-                        <Route path="upgrade" element={<UpgradeSettings />} />
                         <Route path="security" element={<SecuritySettings />} />
-                        <Route path="templates" element={<TemplatesSettings />} />
-                        <Route path="billing" element={<BillingSettings />} />
-                        <Route path="roadmaps" element={<RoadmapsSettings />} />
+                        <Route path="web" element={<WebSettings />} />
                     </Routes>
                 </main>
             </div>
@@ -77,17 +70,14 @@ const SettingsPage = () => {
 
 const placeHolderCSS = "text-3xl font-bold mb-6 text-gray-200"
 
-const AccountSettings = () => <h1 className={placeHolderCSS}>My Account</h1>;
+
 const ConnectedAccounts = () => <h1 className={placeHolderCSS}>Connected Accounts</h1>;
 const LanguageSettings = () => <h1 className={placeHolderCSS}>Language</h1>;
 
 const GeneralSettings = () => <h1 className={placeHolderCSS}>General Settings</h1>;
 const ApperanceSettings = () => <h1 className={placeHolderCSS}>Apperance</h1>;
 const MultifactorAuthentication = () => <h1 className={placeHolderCSS}>Multifactor Authentication</h1>;
-const UpgradeSettings = () => <h1 className={placeHolderCSS}>Upgrade</h1>;
 const SecuritySettings = () => <h1 className={placeHolderCSS}>Security</h1>;
-const TemplatesSettings = () => <h1 className={placeHolderCSS}>Templates</h1>;
-const BillingSettings = () => <h1 className={placeHolderCSS}>Billing</h1>;
-const RoadmapsSettings = () => <h1 className={placeHolderCSS}>Roadmaps</h1>;
+const WebSettings = () => <h1 className={placeHolderCSS}>Web</h1>;
 
 export default SettingsPage;
