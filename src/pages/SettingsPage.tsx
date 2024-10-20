@@ -1,9 +1,13 @@
 import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 
 import AccountSettings from './settings/AccountSettings';
+import ConnectedAccounts from './settings/ConnectedAccounts';
+import LanguageSettings from './settings/LanguageSettings';
 
-
-
+import GeneralSettings from './settings/GeneralSettings';
+import ApperanceSettings from './settings/ApperanceSettings';
+import SecuritySettings from './settings/SecuritySettings';
+import WebSettings from './settings/WebSettings';
 
 const SettingsPage = () => {
     return (
@@ -32,9 +36,6 @@ const SettingsPage = () => {
                         <NavLink to="/settings/apperance" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Apperance</NavLink>
-                        <NavLink to="/settings/mfa" className={({ isActive }) =>
-                            `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
-                        }>Multifactor Authentication</NavLink>
                         <NavLink to="/settings/security" className={({ isActive }) =>
                             `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
                         }>Security</NavLink>
@@ -52,7 +53,6 @@ const SettingsPage = () => {
 
                         <Route path="general" element={<GeneralSettings />} />
                         <Route path="apperance" element={<ApperanceSettings />} />
-                        <Route path="mfa" element={<MultifactorAuthentication />} />
                         <Route path="security" element={<SecuritySettings />} />
                         <Route path="web" element={<WebSettings />} />
                     </Routes>
@@ -61,23 +61,5 @@ const SettingsPage = () => {
         </div>
     );
 };
-
-
-
-
-
-// Placeholder components for other settings pages
-
-const placeHolderCSS = "text-3xl font-bold mb-6 text-gray-200"
-
-
-const ConnectedAccounts = () => <h1 className={placeHolderCSS}>Connected Accounts</h1>;
-const LanguageSettings = () => <h1 className={placeHolderCSS}>Language</h1>;
-
-const GeneralSettings = () => <h1 className={placeHolderCSS}>General Settings</h1>;
-const ApperanceSettings = () => <h1 className={placeHolderCSS}>Apperance</h1>;
-const MultifactorAuthentication = () => <h1 className={placeHolderCSS}>Multifactor Authentication</h1>;
-const SecuritySettings = () => <h1 className={placeHolderCSS}>Security</h1>;
-const WebSettings = () => <h1 className={placeHolderCSS}>Web</h1>;
 
 export default SettingsPage;

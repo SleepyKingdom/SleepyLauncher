@@ -32,6 +32,7 @@ function createWindow() {
     width: 1280,
     height: 720,
     frame: false,
+    title: "SleepyLauncher",
     resizable: false,
     icon: path.join(process.env.VITE_PUBLIC, 'launcherIcon.png'),
     webPreferences: {
