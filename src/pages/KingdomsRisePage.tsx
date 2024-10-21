@@ -1,3 +1,7 @@
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
+
+
+
 const KingdomsRise = () => {
     return (
         <div className="flex flex-col items-center justify-start h-full bg-gray-600 text-white p-6">
@@ -29,6 +33,14 @@ const KingdomsRise = () => {
 
             {/* Tabs (Placeholder for Overview, Mods, etc.) */}
             <div className="w-full max-w-4xl flex justify-start border-b border-gray-700 mb-4">
+                <Routes>
+                    <Route index element={<Navigate to="overview" replace />} />
+                    <Route path="account" element={<OverviewPage />} />
+                    <Route path="connectedaccounts" element={<RequirementsPage />} />
+                </Routes>
+                <NavLink to="/settings/security" className={({ isActive }) =>
+                    `block py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                }>Security</NavLink>
                 <button className="text-white py-2 px-4 border-b-2 border-blue-500">
                     Overview
                 </button>
@@ -47,5 +59,27 @@ const KingdomsRise = () => {
         </div>
     );
 };
+
+
+const OverviewPage = () => {
+    return (
+        <>
+            <p className="text-gray-300">
+                You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.
+            </p>
+        </>
+    )
+}
+
+const RequirementsPage = () => {
+    return (
+        <>
+            <p className="text-gray-300">
+                You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.
+            </p>
+        </>
+    )
+}
+
 
 export default KingdomsRise;
