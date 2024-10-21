@@ -37,11 +37,11 @@ const router = createBrowserRouter([
         element: <SignUpPage />
       },
       {
-        path: "/kingdomsrise",
+        path: "/kingdomsrise/*",
         element: <KingdomsRise />
       },
       {
-        path: "/sleepylegends",
+        path: "/sleepylegends/*",
         element: <SleepyLegends />
       }
 
