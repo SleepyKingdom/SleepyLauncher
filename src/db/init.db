@@ -1,0 +1,14 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,  -- Automatically generate a unique ID for each user
+    username VARCHAR(255) NOT NULL UNIQUE,  -- Username (unique and non-nullable)
+    password VARCHAR(255) NOT NULL,  -- Password (non-nullable, hashed for security)
+    display_name VARCHAR(255) NOT NULL,  -- Display name (non-nullable)
+    email VARCHAR(255) NOT NULL UNIQUE,  -- Email address (unique and non-nullable)
+    phone_number VARCHAR(20),  -- Phone number (nullable)
+    first_name VARCHAR(255),  -- First name (nullable)
+    last_name VARCHAR(255),  -- Last name (nullable)
+    force_logout BOOLEAN DEFAULT FALSE,  -- Force logout flag (default value is FALSE)
+    phone2fa BOOLEAN DEFAULT FALSE,  -- Phone-based 2FA enabled (default FALSE)
+    email2fa BOOLEAN DEFAULT FALSE,  -- Email-based 2FA enabled (default FALSE)
+    auth2fa BOOLEAN DEFAULT FALSE  -- Two-factor authentication enabled (default FALSE)
+);
