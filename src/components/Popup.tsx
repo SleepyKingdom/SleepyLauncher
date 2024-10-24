@@ -9,24 +9,21 @@ const Popup: React.FC = () => {
     };
 
     return (
-        <>
-            <div className="flex items-center justify-center">
-                <div className="flex flex-col justify-center items-center bg-gray-700 text-white rounded-lg shadow-lg p-6 w-80">
-                    <h2 className="text-2xl font-bold mb-4 text-center text-red-500">Attention!</h2>
-                    <p className="mb-4 text-center">
-                        You are about to leave SleepyLauncher and open the Webpage of SleepyKingdom.
-                    </p>
+        <div className="flex items-center justify-center">
+            <div className="flex flex-col justify-center items-center bg-gray-700 text-white rounded-lg shadow-lg p-6 w-full max-w-md">
+                <h2 className="text-2xl font-bold mb-4 text-center text-red-500">Attention!</h2>
+                <p className="mb-4 text-center">
+                    You are about to leave SleepyLauncher and open the Webpage of SleepyKingdom.
+                </p>
 
-                    <button
-                        className="hover:bg-gray-600 shadow-xl text-red-400 font-bold py-2 px-4 rounded-xl"
-                        onClick={openExternalLink} // Use React's onClick event
-                    >
-                        Open Browser
-                    </button>
-
-                </div>
+                <button
+                    className="bg-red-500 hover:bg-red-600 shadow-lg text-white font-bold py-2 px-6 rounded-lg transition duration-200"
+                    onClick={openExternalLink}
+                >
+                    Open Browser
+                </button>
             </div>
-        </>
+        </div>
     );
 };
 

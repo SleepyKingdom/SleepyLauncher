@@ -46,7 +46,7 @@ const SettingsPage = () => {
                 </nav>
                 <main className="flex-1 bg-gray-600 p-8 rounded-tr-2xl overflow-hidden">
                     <Routes>
-                        <Route index element={<Navigate to="workspace" replace />} />
+                        <Route index element={<Navigate to="account" replace />} />
                         <Route path="account" element={<AccountSettings />} />
                         <Route path="connectedaccounts" element={<ConnectedAccounts />} />
                         <Route path="language" element={<LanguageSettings />} />
