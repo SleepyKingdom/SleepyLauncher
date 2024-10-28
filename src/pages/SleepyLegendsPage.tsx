@@ -38,16 +38,16 @@ const SleepyLegendsPage = () => {
             {/* Game Title and Version Info */}
             <div className="w-full max-w-4xl text-center mb-4">
                 <h1 className="text-4xl font-extrabold">SleepyLegends</h1>
-                <p className="text-gray-400">Version 1.0.0</p>
+                <p className="text-gray-400">Version N/A</p>
             </div>
 
             {/* Play Button */}
             <div className="w-full max-w-4xl flex items-center justify-between mb-4">
                 <button
-                    onClick={() => alert("Launching SleepyLegends...")}
-                    className="flex items-center bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-semibold transition-colors"
+                    onClick={() => alert("SleepyLegends is still in development...")}
+                    className="flex items-center bg-red-600 hover:bg-red-500 text-white py-2 px-6 rounded-lg font-semibold transition-colors"
                 >
-                    <span className="mr-2 material-symbols-rounded">play_arrow</span> Play
+                    <span className="mr-2 material-symbols-rounded">play_arrow</span> WIP
                 </button>
             </div>
 
@@ -102,7 +102,7 @@ const OverviewPage = () => {
         <div>
             <h2 className="text-2xl font-bold mb-2">Game Overview</h2>
             <p className="text-gray-300">
-                You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.
+                Work in progress...
             </p>
         </div>
     );
@@ -113,8 +113,7 @@ const RequirementsPage = () => {
         <div>
             <h2 className="text-2xl font-bold mb-2">System Requirements</h2>
             <p className="text-gray-300">
-                SleepyLegends requires a modern PC with a decent graphics card, 8 GB RAM, and at least 10 GB of free disk space. Ensure your system is up-to-date with the latest Java runtime and a installed copy of Minecraft. <br />
-                Also link your Microsoft account {"(with a valid minecraft license)"} via settings {"->"} connected accounts
+                Work in progress...
             </p>
         </div>
     );
