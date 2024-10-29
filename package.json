@@ -42,7 +42,8 @@
   "build": {
     "appId": "net.sleepykingdom.sleepylauncher",
     "files": [
-      "dist/**/*"
+      "dist/**/*",
+      "dist-electron/**/*"
     ],
     "directories": {
       "buildResources": "build"
@@ -51,6 +52,9 @@
       "target": [
         "portable"
       ]
-    }
+    },
+    "portable": {
+            "artifactName": "SleepyLauncher.exe"
+        }
   }
 }
