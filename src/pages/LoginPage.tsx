@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { login } from '../functions/authService';
 
 type FormData = {
     username: string;
@@ -27,22 +28,32 @@ const LoginPage = () => {
         setErrors({ ...errors, [name]: '' });  // Clear any existing errors
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Basic validation
-        if (!formData.username) {
-            setErrors((prev) => ({ ...prev, username: 'Username is required' }));
-        }
-        if (!formData.password) {
-            setErrors((prev) => ({ ...prev, password: 'Password is required' }));
+
+        if (!formData.username || !formData.password) {
+            setErrors({
+                username: formData.username ? '' : 'Username is required',
+                password: formData.password ? '' : 'Password is required',
+            });
+            return;
         }
 
-        if (!Object.values(errors).some(error => error !== '') && formData.username && formData.password) {
-            console.log(formData);
-        } else {
-            alert('Please correct the errors before submitting.');
+        try {
+            const response = await login(formData.username, formData.password);
+
+            if (response.success) {
+                sessionStorage.setItem('authToken', response.token!);
+                alert('Login successful!');
+            } else {
+                alert(response.message || 'Login failed');
+            }
+        } catch (error) {
+            console.error("Error during login submission:", error);
+            alert('An error occurred during login. Please try again.');
         }
     };
+
 
     return (
         <div className="flex items-center justify-center h-full p-6">

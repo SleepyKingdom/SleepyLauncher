@@ -1,118 +1,79 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
-//import { createRequire } from 'node:module'
-import { fileURLToPath } from 'node:url'
-import path from 'path'
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { fileURLToPath } from 'node:url';
+import path from 'path';
 import fs from 'fs';
 
-//const require = createRequire(import.meta.url)
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// The built directory structure
-//
-// ├─┬─┬ dist
-// │ │ └── index.html
-// │ │
-// │ ├─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.mjs
-// │
-process.env.APP_ROOT = path.join(__dirname, '..')
+// Directory paths and server URLs
+process.env.APP_ROOT = path.join(__dirname, '..');
+export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL'];
+export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron');
+export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist');
+process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
+  ? path.join(process.env.APP_ROOT, 'public')
+  : RENDERER_DIST;
 
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
-export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
-export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
-export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
-
-process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST
-
-let win: BrowserWindow | null
+let win: BrowserWindow | null;
 
 function createWindow() {
   win = new BrowserWindow({
     width: 1280,
     height: 720,
     frame: false,
-    title: "SleepyLauncher",
+    title: 'SleepyLauncher',
     resizable: false,
     icon: path.join(process.env.VITE_PUBLIC, 'launcherIcon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
-      nodeIntegration: true,
-      contextIsolation: false
-    },
-  })
+      nodeIntegration: true, // Set to false in production
+      contextIsolation: false, // Set to true in production
+      devTools: true // Set to false in production
+    }
+  });
 
-  // Test active push message to Renderer-process.
+  // Send a message to the renderer process once the window is loaded
   win.webContents.on('did-finish-load', () => {
-    win?.webContents.send('main-process-message', (new Date).toLocaleString())
-  })
+    win?.webContents.send('main-process-message', new Date().toLocaleString());
+  });
 
+  // Load URL based on environment
   if (VITE_DEV_SERVER_URL) {
-    win.loadURL(VITE_DEV_SERVER_URL)
+    win.loadURL(VITE_DEV_SERVER_URL);
   } else {
-    // win.loadFile('dist/index.html')
-    win.loadFile(path.join(RENDERER_DIST, 'index.html'))
+    win.loadFile(path.join(RENDERER_DIST, 'index.html'));
   }
 }
 
-
-// Minimize window
-ipcMain.on('minimize-window', () => {
-  win?.minimize();
-});
-
-// Toggle fullscreen
-ipcMain.on('toggle-fullscreen', () => {
-  const isFullscreen = win?.isFullScreen() || false;
-  win?.setFullScreen(!isFullscreen);
-});
-
-// Quit the application
+// Window controls
+ipcMain.on('minimize-window', () => win?.minimize());
+ipcMain.on('toggle-fullscreen', () => win?.setFullScreen(!win?.isFullScreen()));
 ipcMain.on('quit-app', () => {
   app.quit();
   win = null;
 });
 
-
-
-
-
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Quit the application when all windows are closed
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
-    win = null
+    app.quit();
+    win = null;
   }
-})
-
-ipcMain.on('close-all-windows', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-    win = null
-  }
-  }
-);
+});
 
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
-  }
-})
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
 
-// Path to store the settings file
+// Settings file path
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 
 // Load settings from the file
 ipcMain.on('load-settings', (event) => {
   if (fs.existsSync(settingsPath)) {
     const data = fs.readFileSync(settingsPath, 'utf-8');
-    event.returnValue = JSON.parse(data);  // Sync response with sendSync
+    event.returnValue = JSON.parse(data);
   } else {
-    // Default settings if the file doesn't exist
     event.returnValue = {
       autostart: false,
       minimizeOnStart: false,
@@ -126,12 +87,5 @@ ipcMain.on('save-settings', (_event, settings) => {
   fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2), 'utf-8');
 });
 
-
-
-
-app.whenReady().then(createWindow)
-
-
-
-
-
+// Initialize the app when ready
+app.whenReady().then(createWindow);
