@@ -1,4 +1,8 @@
-const AccountSettings = () => {
+interface AccountSettingsProps {
+    profilePic?: string; // optional prop with string type
+}
+
+const AccountSettings: React.FC<AccountSettingsProps> = ({ profilePic }) => {
     return (
         <>
             {/* Header with title and Edit Profile button */}
@@ -11,11 +15,17 @@ const AccountSettings = () => {
 
             {/* Profile Section */}
             <div className="flex items-center space-x-4 p-4 bg-gray-700 rounded-md mb-6">
-                <img
-                    src="https://via.placeholder.com/64"
-                    alt="Profile"
-                    className="w-14 h-14 rounded-full"
-                />
+                {profilePic ? (
+                    <img
+                        src={profilePic}
+                        alt="Profile"
+                        className="w-14 h-14 rounded-full"
+                    />
+                ) : (
+                    <div className="w-14 h-14 rounded-full bg-gray-600 flex items-center justify-center">
+                        <span className="material-symbols-rounded text-gray-200 text-3xl">person</span>
+                    </div>
+                )}
                 <div>
                     <h2 className="text-lg font-semibold text-gray-100">Lunartyx</h2>
                     <p className="text-gray-400 text-sm">@lunartyx</p>
@@ -24,19 +34,19 @@ const AccountSettings = () => {
 
             {/* Account Details Section */}
             <div className="space-y-4">
-                {/* Email */}
+                {/* Display Name */}
                 <div className="bg-gray-700 p-4 rounded-md">
                     <p className="text-gray-500 text-sm">Display Name</p>
                     <p className="text-gray-200 font-medium">Lunartyx</p>
                 </div>
 
-                {/* Phone Number */}
+                {/* User Name */}
                 <div className="bg-gray-700 p-4 rounded-md">
                     <p className="text-gray-500 text-sm">User Name</p>
                     <p className="text-gray-200 font-medium">@lunartyx</p>
                 </div>
 
-                {/* Phone Number */}
+                {/* Email */}
                 <div className="bg-gray-700 p-4 rounded-md">
                     <p className="text-gray-500 text-sm">Email</p>
                     <p className="text-gray-200 font-medium">{"dominik@urbanetz.li"}</p>
