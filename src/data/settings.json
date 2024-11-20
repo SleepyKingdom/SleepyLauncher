@@ -2,6 +2,7 @@
     "settings": {
         "autostart": true,
         "minimizeOnStart": false,
-        "third": true
+        "third": true,
+        "language": "en"
     }
 }
