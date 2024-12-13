@@ -7,10 +7,11 @@ import SideBar from './modules/SideBar'
 
 // Function imports
 import useDisableCopyPaste from './functions/useDisableCopyPaste'
+import disableLinkDrag from './functions/disableLinkDrag'
 
 function App() {
   useDisableCopyPaste({ enableOnInputFields: true });
-
+  disableLinkDrag();
   return (
     <>
       <div className="select-none h-screen w-screen bg-gray-600 flex flex-col">

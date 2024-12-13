@@ -17,7 +17,7 @@ const SettingsPage = () => {
                     <div className="p-4">
                         <h2 className="text-xs font-semibold text-gray-500 mb-4">ACCOUNT</h2>
                         <NavLink to="/settings/account" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">manage_accounts</span>
@@ -25,7 +25,7 @@ const SettingsPage = () => {
                             <span className='flex-1 ms-3 whitespace-nowrap'>My Account</span>
                         </NavLink>
                         <NavLink to="/settings/connectedaccounts" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">link</span>
@@ -33,7 +33,7 @@ const SettingsPage = () => {
                             <span className='flex-1 ms-3 whitespace-nowrap'>Connected Accounts</span>
                         </NavLink>
                         <NavLink to="/settings/language" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">language</span>
@@ -44,7 +44,7 @@ const SettingsPage = () => {
                     <div className="p-4">
                         <h2 className="text-xs font-semibold text-gray-500 mb-4">CLIENT SETTINGS</h2>
                         <NavLink to="/settings/general" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">settings</span>
@@ -52,7 +52,7 @@ const SettingsPage = () => {
                             <span className='flex-1 ms-3 whitespace-nowrap'>General Settings</span>
                         </NavLink>
                         <NavLink to="/settings/apperance" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">palette</span>
@@ -60,7 +60,7 @@ const SettingsPage = () => {
                             <span className='flex-1 ms-3 whitespace-nowrap'>Appearance</span>
                         </NavLink>
                         <NavLink to="/settings/security" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">security</span>
@@ -68,7 +68,7 @@ const SettingsPage = () => {
                             <span className='flex-1 ms-3 whitespace-nowrap'>Security</span>
                         </NavLink>
                         <NavLink to="/settings/web" className={({ isActive }) =>
-                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-blue-200' : 'text-gray-200 hover:text-white'}`
+                            `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">public</span>
