@@ -1,10 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getCurrentSettings, updateSettings } from '../../functions/getSettings';
+
+// Map display names to language codes
+const LANGUAGE_MAP: { [key: string]: string } = {
+    English: 'en',
+    German: 'de',
+    French: 'fr',
+    Spanish: 'es',
+    Italian: 'it',
+};
+
+const REVERSE_LANGUAGE_MAP: { [key: string]: string } = Object.fromEntries(
+    Object.entries(LANGUAGE_MAP).map(([name, code]) => [code, name])
+);
 
 const LanguageSettings = () => {
-    const [selectedLanguage, setSelectedLanguage] = useState('English');
+    const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
 
+    // Load initial language setting from settings.json
+    useEffect(() => {
+        try {
+            const currentSettings = getCurrentSettings();
+            const languageCode = currentSettings.language || 'en';
+            setSelectedLanguage(REVERSE_LANGUAGE_MAP[languageCode] || 'English'); // Map code to display name
+        } catch (error) {
+            console.error('Error reading language setting:', error);
+        }
+    }, []);
+
+    // Handle language change
     const handleLanguageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedLanguage(e.target.value);
+        const displayLanguage = e.target.value;
+        const languageCode = LANGUAGE_MAP[displayLanguage];
+
+        setSelectedLanguage(displayLanguage);
+
+        // Update settings.json with the language code
+        updateSettings({ language: languageCode });
     };
 
     return (
@@ -13,110 +45,30 @@ const LanguageSettings = () => {
 
             {/* Language Selection */}
             <div className="space-y-4">
-                {/* Language Option: English */}
-                <div className="flex items-center bg-gray-700 p-4 rounded-md">
-                    <label htmlFor="english" className="flex items-center space-x-3 cursor-pointer">
-                        <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                            {selectedLanguage === 'English' && (
-                                <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
-                            )}
-                        </span>
-                        <span className="text-gray-200 text-lg">English</span>
-                        <input
-                            type="radio"
-                            id="english"
-                            name="language"
-                            value="English"
-                            checked={selectedLanguage === 'English'}
-                            onChange={handleLanguageChange}
-                            className="hidden"
-                        />
-                    </label>
-                </div>
-
-                {/* Language Option: German */}
-                <div className="flex items-center bg-gray-700 p-4 rounded-md">
-                    <label htmlFor="german" className="flex items-center space-x-3 cursor-pointer">
-                        <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                            {selectedLanguage === 'German' && (
-                                <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
-                            )}
-                        </span>
-                        <span className="text-gray-200 text-lg">German</span>
-                        <input
-                            type="radio"
-                            id="german"
-                            name="language"
-                            value="German"
-                            checked={selectedLanguage === 'German'}
-                            onChange={handleLanguageChange}
-                            className="hidden"
-                        />
-                    </label>
-                </div>
-
-                {/* Language Option: French */}
-                <div className="flex items-center bg-gray-700 p-4 rounded-md">
-                    <label htmlFor="french" className="flex items-center space-x-3 cursor-pointer">
-                        <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                            {selectedLanguage === 'French' && (
-                                <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
-                            )}
-                        </span>
-                        <span className="text-gray-200 text-lg">French</span>
-                        <input
-                            type="radio"
-                            id="french"
-                            name="language"
-                            value="French"
-                            checked={selectedLanguage === 'French'}
-                            onChange={handleLanguageChange}
-                            className="hidden"
-                        />
-                    </label>
-                </div>
-
-                {/* Language Option: Spanish */}
-                <div className="flex items-center bg-gray-700 p-4 rounded-md">
-                    <label htmlFor="spanish" className="flex items-center space-x-3 cursor-pointer">
-                        <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                            {selectedLanguage === 'Spanish' && (
-                                <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
-                            )}
-                        </span>
-                        <span className="text-gray-200 text-lg">Spanish</span>
-                        <input
-                            type="radio"
-                            id="spanish"
-                            name="language"
-                            value="Spanish"
-                            checked={selectedLanguage === 'Spanish'}
-                            onChange={handleLanguageChange}
-                            className="hidden"
-                        />
-                    </label>
-                </div>
-
-                {/* Language Option: Italian */}
-                <div className="flex items-center bg-gray-700 p-4 rounded-md">
-                    <label htmlFor="italian" className="flex items-center space-x-3 cursor-pointer">
-                        <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                            {selectedLanguage === 'Italian' && (
-                                <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
-                            )}
-                        </span>
-                        <span className="text-gray-200 text-lg">Italian</span>
-                        <input
-                            type="radio"
-                            id="italian"
-                            name="language"
-                            value="Italian"
-                            checked={selectedLanguage === 'Italian'}
-                            onChange={handleLanguageChange}
-                            className="hidden"
-                        />
-                    </label>
-                </div>
+                {Object.keys(LANGUAGE_MAP).map((language) => (
+                    <div key={language} className="flex items-center bg-gray-700 p-4 rounded-md">
+                        <label
+                            htmlFor={language.toLowerCase()}
+                            className="flex items-center space-x-3 cursor-pointer"
+                        >
+                            <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
+                                {selectedLanguage === language && (
+                                    <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
+                                )}
+                            </span>
+                            <span className="text-gray-200 text-lg">{language}</span>
+                            <input
+                                type="radio"
+                                id={language.toLowerCase()}
+                                name="language"
+                                value={language}
+                                checked={selectedLanguage === language}
+                                onChange={handleLanguageChange}
+                                className="hidden"
+                            />
+                        </label>
+                    </div>
+                ))}
             </div>
         </>
     );
