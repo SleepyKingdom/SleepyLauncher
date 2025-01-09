@@ -1,5 +1,11 @@
 import { NavLink, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+//import { getLanguageText } from '../functions/getLanguageText';
+//import { getSettings } from '../functions/getSettings';
+
+//const currentLanguage = getSettings("language")
+//console.log(currentLanguage)
+//console.log()
 
 const KingdomsRise = () => {
     // Declare the type of navRefs as an array of HTMLAnchorElement or null
@@ -100,7 +106,7 @@ const KingdomsRise = () => {
 const OverviewPage = () => {
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-2">Game Overview</h2>
+            <h2 className="text-2xl font-bold mb-2">{/* getLanguageText(currentLanguage, 'pages.kingdomsrisepage.overviewtext') */}</h2>
             <p className="text-gray-300">
                 You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.
             </p>

@@ -1,8 +1,9 @@
 {
     "settings": {
+        "language": "en",
         "autostart": true,
         "minimizeOnStart": false,
-        "third": true,
-        "language": "en"
+        "third": true
+        
     }
 }

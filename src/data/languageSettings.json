@@ -1,6 +1,26 @@
 {
-    "languages": {
+    "language": {
         "en": {
+            "pages": {
+                "kingdomsrisepage": {
+                    "overviewtext": "You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.",
+                    "requirementstext": "KingdomsRise requires a modern PC with a decent graphics card, 8 GB RAM, and at least 10 GB of free disk space. Ensure your system is up-to-date with the latest Java runtime and a installed copy of Minecraft. <br />Also link your Microsoft account {'(with a valid minecraft license)'} via settings {'->'} connected accounts"
+                }
+            },
+            "navigation": {
+                "settings": "Settings"
+
+            },
+            "universal": {
+                "buttons": {
+                    "playbutton": "Play"
+                },
+                "headers": {
+                    "version": "Version",
+                    "overviewheader": "Game Overview",
+                    "requirementsheader": "System Requirements"
+                }
+            }
 
         },
         "de": {
