@@ -1,45 +1,94 @@
-//getLanguageText.ts
 import * as fs from 'fs';
 import * as path from 'path';
+import os from 'os';
 
 type NestedStrings = { [key: string]: string | NestedStrings };
 
 interface LanguageFile {
     language: {
-        [key: string]: NestedStrings; // Each language can have nested keys of strings
+        [key: string]: NestedStrings; // Nested language strings
     };
 }
 
-let cachedLanguageFile: LanguageFile | null = null; // Cache to store the parsed language file
+const DEFAULT_LANGUAGE_FILE: LanguageFile = {
+    language: {
+        en: {
+            pages: {
+                kingdomsrisepage: {
+                    overviewtext: "Default overview text",
+                    requirementstext: "Default requirements text",
+                },
+            },
+            universal: {
+                buttons: {
+                    playbutton: "Play",
+                },
+                headers: {
+                    version: "Version",
+                    overviewheader: "Game Overview",
+                    requirementsheader: "System Requirements",
+                },
+            },
+        },
+    },
+};
+
+let cachedLanguageFile: LanguageFile | null = null;
+
+// Get the correct base directory for the language file based on OS
+function getConfigPath(): string {
+    const baseDir =
+        process.platform === "win32"
+            ? path.join(process.env.APPDATA || "", "sleepy", "SleepyLauncher")
+            : path.join(os.homedir(), ".sleepy", "SleepyLauncher");
+    return path.join(baseDir, "languageSettings.json");
+}
+
+function ensureLanguageFile(): string {
+    const languageFilePath = getConfigPath();
+    const dirPath = path.dirname(languageFilePath);
+
+    // Ensure the directory exists
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+    }
+
+    // Ensure the file exists with default language content
+    if (!fs.existsSync(languageFilePath)) {
+        fs.writeFileSync(languageFilePath, JSON.stringify(DEFAULT_LANGUAGE_FILE, null, 4), "utf8");
+        console.log(`Created default language file at: ${languageFilePath}`);
+    }
+
+    return languageFilePath;
+}
 
 function loadLanguageFile(): LanguageFile {
     if (cachedLanguageFile) {
-        return cachedLanguageFile; // Return cached data if available
+        return cachedLanguageFile;
     }
 
-    const languageFilePath = path.resolve(__dirname, '../data/language.json'); // Adjust the path if necessary
+    const languageFilePath = ensureLanguageFile();
 
     try {
-        const rawData = fs.readFileSync(languageFilePath, 'utf8'); // Read the file
-        cachedLanguageFile = JSON.parse(rawData) as LanguageFile; // Parse and cache the JSON data
+        const rawData = fs.readFileSync(languageFilePath, "utf8");
+        cachedLanguageFile = JSON.parse(rawData) as LanguageFile;
         return cachedLanguageFile;
     } catch (error) {
-        console.error('Error reading or parsing language.json:', error);
-        throw error; // Re-throw the error to signal the caller about the issue
+        console.error('Error reading or parsing languageSettings.json:', error);
+        throw error;
     }
 }
 
 export function getLanguageText(language: string, path: string): string {
-    const languageData = loadLanguageFile(); // Use cached or freshly loaded data
+    const languageData = loadLanguageFile();
 
     if (!languageData.language || !languageData.language[language]) {
         throw new Error(`Language "${language}" not found in the language file.`);
     }
 
     const languageContent = languageData.language[language];
-    const pathParts = path.split('.'); // Split the dot-separated path into parts
+    const pathParts = path.split('.');
 
-    // Traverse the object to resolve the path
     let current: string | NestedStrings = languageContent;
     for (const part of pathParts) {
         if (typeof current === 'object' && part in current) {
@@ -50,7 +99,7 @@ export function getLanguageText(language: string, path: string): string {
     }
 
     if (typeof current === 'string') {
-        return current; // Return the final value if it's a string
+        return current;
     }
 
     throw new Error(`Path "${path}" did not resolve to a string.`);
