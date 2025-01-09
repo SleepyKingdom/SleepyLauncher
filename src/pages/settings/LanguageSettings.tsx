@@ -1,68 +1,46 @@
-import { useEffect, useState } from 'react';
-import { getCurrentSettings, updateSettings } from '../../functions/getSettings';
-
-// Map display names to language codes
-const LANGUAGE_MAP: { [key: string]: string } = {
-    English: 'en',
-    German: 'de',
-    French: 'fr',
-    Spanish: 'es',
-    Italian: 'it',
-};
-
-const REVERSE_LANGUAGE_MAP: { [key: string]: string } = Object.fromEntries(
-    Object.entries(LANGUAGE_MAP).map(([name, code]) => [code, name])
-);
+import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
+import { getLanguageText } from '../../functions/getLanguageText';
 
 const LanguageSettings = () => {
-    const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
+    const { language, setLanguage } = useLanguage(); // Access global language state
 
-    // Load initial language setting from settings.json
-    useEffect(() => {
-        try {
-            const currentSettings = getCurrentSettings();
-            const languageCode = currentSettings.language || 'en';
-            setSelectedLanguage(REVERSE_LANGUAGE_MAP[languageCode] || 'English'); // Map code to display name
-        } catch (error) {
-            console.error('Error reading language setting:', error);
-        }
-    }, []);
-
-    // Handle language change
     const handleLanguageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const displayLanguage = e.target.value;
-        const languageCode = LANGUAGE_MAP[displayLanguage];
-
-        setSelectedLanguage(displayLanguage);
-
-        // Update settings.json with the language code
-        updateSettings({ language: languageCode });
+        setLanguage(e.target.value); // Update global state and settings.json
     };
+
+    // Define language labels dynamically
+    const languageOptions = [
+        { label: getLanguageText(language, "settings.language.en"), code: 'en' },
+        { label: getLanguageText(language, "settings.language.de"), code: 'de' },
+        { label: getLanguageText(language, "settings.language.fr"), code: 'fr' },
+        { label: getLanguageText(language, "settings.language.sp"), code: 'es' },
+        { label: getLanguageText(language, "settings.language.it"), code: 'it' },
+    ];
+
+    console.log(getLanguageText(language, "settings.language.title2"))
 
     return (
         <>
-            <h1 className="text-2xl font-bold text-gray-100 mb-6">Language Settings</h1>
+            <h1 className="text-2xl font-bold text-gray-100 mb-6">{getLanguageText(language, "settings.language.title2")}</h1>
 
             {/* Language Selection */}
             <div className="space-y-4">
-                {Object.keys(LANGUAGE_MAP).map((language) => (
-                    <div key={language} className="flex items-center bg-gray-700 p-4 rounded-md">
-                        <label
-                            htmlFor={language.toLowerCase()}
-                            className="flex items-center space-x-3 cursor-pointer"
-                        >
+                {languageOptions.map(({ label, code }) => (
+                    <div key={code} className="flex items-center bg-gray-700 p-4 rounded-md">
+                        <label htmlFor={code} className="flex items-center space-x-3 cursor-pointer">
                             <span className="w-4 h-4 inline-block rounded-full border-2 border-gray-300 bg-gray-800 relative">
-                                {selectedLanguage === language && (
+                                {language === code && (
                                     <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-blue-600"></span>
                                 )}
                             </span>
-                            <span className="text-gray-200 text-lg">{language}</span>
+                            <span className="text-gray-200 text-lg">{label}</span>
                             <input
                                 type="radio"
-                                id={language.toLowerCase()}
+                                id={code}
                                 name="language"
-                                value={language}
-                                checked={selectedLanguage === language}
+                                value={code}
+                                checked={language === code}
                                 onChange={handleLanguageChange}
                                 className="hidden"
                             />

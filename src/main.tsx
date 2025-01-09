@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage.tsx"
 import KingdomsRise from "./pages/KingdomsRisePage.tsx"
 import SleepyLegends from "./pages/SleepyLegendsPage.tsx"
 import SignUpPage from "./pages/SignUpPage.tsx"
+import { LanguageProvider } from './context/LanguageContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </React.StrictMode>,
 )
 

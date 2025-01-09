@@ -9,7 +9,6 @@
             },
             "navigation": {
                 "settings": "Settings"
-
             },
             "universal": {
                 "buttons": {
@@ -20,19 +19,79 @@
                     "overviewheader": "Game Overview",
                     "requirementsheader": "System Requirements"
                 }
-            }
+            },
+            "settings": {
+                "language": {
+                    "title": "Language",
+                    "title2": "Language Settings",
+                    "en": "English",
+                    "de": "German",
+                    "fr": "French",
+                    "sp": "Spanish",
+                    "it": "Italian"
+                },
+                "account": {
+                    "title": "Account",
+                    "account": {
+                        "title": "My Account",
+                        "dname": "Display Name",
+                        "uname": "User Name",
+                        "email": "Email",
+                        "mobile": "Phone Number",
+                        "passwordcng": "Change Password"
+                    },
+                    "connected": {
+                        "title": "Connected Accounts",
+                        "dc": "Connected as",
+                        "ms": "Connected to your Microsoft account"
+                    }
+                },
+                "client": {
+                    "title": "Client Settings",
+                    "general": {
+                        "title": "General Settings",
+                        "client": "Client Settings",
+                        "dwnld": "Game Download Location",
+                        "mcexe": "Minecraft.exe Location"
+                    },
+                    "appearance": {
+                        "title": "Appearance",
+                        "title2": "Appearance Settings",
+                        "theme": "Theme",
+                        "dark": "Dark",
+                        "light": "Light"
 
+                    },
+                    "security": {
+                        "title": "Security",
+                        "title2": "Security Settings",
+                        "session": "Session Management",
+                        "logout": "Force Logout Everywhere",
+                        "2fa": "Two-Factor Authentication (2FA)",
+                        "mobile": "Enable via Mobile",
+                        "email": "Enable via Email",
+                        "authapp": "Enable via Authenticatior App"
+                    },
+                    "web": {
+                        "title": "Web",
+                        "title2": "Web Settings",
+                        "attention": "Attention",
+                        "leave": "You are about to leave SleepyLauncher and open the Webpage of SleepyKingdom.",
+                        "continue": "Open Browser"
+                    }
+
+                }
+            }
         },
         "de": {
             "pages": {
                 "kingdomsrisepage": {
-                    "overviewtext": "Du kannst Zufällig erstellte Welten erkunden, die mit neuen Kreaturen, herausfordernden Dungeons und mächtigen Bossen gefüllt sind. Mit optimierten Multiplayer-Optionen bietet KingdomsRise eine frische Perspektive auf Minecraft, indem es das traditionelle Sandbox-Gameplay mit einer strukturierten RPG-Abenteuerwelt kombiniert.",
-                    "requirementstext": "KingdomsRise erfordert einen modernen PC mit einer leistungsfähigen Grafikkarte, 8 GB RAM und mindestens 10 GB freiem Speicherplatz. Stelle sicher, dass dein System auf dem neuesten Stand ist und die aktuelle Java-Laufzeitumgebung sowie eine installierte Kopie von Minecraft vorhanden sind. <br />Verknüpfe außerdem dein Microsoft-Konto (mit einer gültigen Minecraft-Lizenz) über Einstellungen → Verknüpfte Konten."
+                    "overviewtext": "Du kannst zufällig generierte Welten erkunden, die mit neuen Kreaturen, herausfordernden Dungeons und mächtigen Bossen gefüllt sind. Mit immersiver Erkundung und kooperativen Multiplayer-Optionen bietet KingdomsRise eine frische Perspektive auf Minecraft, indem es traditionelles Sandbox-Gameplay mit einer strukturierten RPG-Abenteuerwelt kombiniert.",
+                    "requirementstext": "KingdomsRise erfordert einen modernen PC mit einer leistungsstarken Grafikkarte, 8 GB RAM und mindestens 10 GB freiem Speicherplatz. Stelle sicher, dass dein System auf dem neuesten Stand ist, einschließlich der aktuellen Java-Laufzeitumgebung und einer installierten Kopie von Minecraft. <br />Verknüpfe außerdem dein Microsoft-Konto {'(mit einer gültigen Minecraft-Lizenz)'} über Einstellungen {'->'} verknüpfte Konten."
                 }
             },
             "navigation": {
                 "settings": "Einstellungen"
-
             },
             "universal": {
                 "buttons": {
@@ -40,8 +99,68 @@
                 },
                 "headers": {
                     "version": "Version",
-                    "overviewheader": "Spiel Übersicht",
+                    "overviewheader": "Spielübersicht",
                     "requirementsheader": "Systemanforderungen"
+                }
+            },
+            "settings": {
+                "account": {
+                    "title": "Konto",
+                    "account": {
+                        "title": "Mein Konto",
+                        "dname": "Anzeigename",
+                        "uname": "Benutzername",
+                        "email": "E-Mail",
+                        "mobile": "Telefonnummer",
+                        "passwordcng": "Passwort ändern"
+                    },
+                    "connected": {
+                        "title": "Verknüpfte Konten",
+                        "dc": "Verbunden als",
+                        "ms": "Mit deinem Microsoft-Konto verknüpft"
+                    },
+                    "language": {
+                        "title": "Sprache",
+                        "title2": "Spracheinstellungen",
+                        "en": "Englisch",
+                        "de": "Deutsch",
+                        "fr": "Französisch",
+                        "sp": "Spanisch",
+                        "it": "Italienisch"
+                    }
+                },
+                "client": {
+                    "title": "Client-Einstellungen",
+                    "general": {
+                        "title": "Allgemeine Einstellungen",
+                        "client": "Client-Einstellungen",
+                        "dwnld": "Download-Speicherort für das Spiel",
+                        "mcexe": "Pfad zu Minecraft.exe"
+                    },
+                    "appearance": {
+                        "title": "Erscheinungsbild",
+                        "title2": "Einstellungen für das Erscheinungsbild",
+                        "theme": "Design",
+                        "dark": "Dunkel",
+                        "light": "Hell"
+                    },
+                    "security": {
+                        "title": "Sicherheit",
+                        "title2": "Sicherheitseinstellungen",
+                        "session": "Sitzungsverwaltung",
+                        "logout": "Überall abmelden erzwingen",
+                        "2fa": "Zwei-Faktor-Authentifizierung (2FA)",
+                        "mobile": "Über Mobilgerät aktivieren",
+                        "email": "Über E-Mail aktivieren",
+                        "authapp": "Über Authentifizierungs-App aktivieren"
+                    },
+                    "web": {
+                        "title": "Web",
+                        "title2": "Web-Einstellungen",
+                        "attention": "Achtung",
+                        "leave": "Du bist dabei, SleepyLauncher zu verlassen und die Webseite von SleepyKingdom zu öffnen.",
+                        "continue": "Browser öffnen"
+                    }
                 }
             }
         }

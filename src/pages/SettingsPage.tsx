@@ -5,24 +5,28 @@ import ConnectedAccounts from './settings/ConnectedAccounts';
 import LanguageSettings from './settings/LanguageSettings';
 
 import GeneralSettings from './settings/GeneralSettings';
-import ApperanceSettings from './settings/ApperanceSettings';
+import AppearanceSettings from './settings/ApperanceSettings';
 import SecuritySettings from './settings/SecuritySettings';
 import WebSettings from './settings/WebSettings';
 
+import { useLanguage } from '../context/LanguageContext';
+import { getLanguageText } from '../functions/getLanguageText';
+
 const SettingsPage = () => {
+    const { language } = useLanguage();
     return (
         <div className="flex h-full w-full">
             <div className="flex-1 flex overflow-hidden">
                 <nav className="w-64 bg-gray-700 text-gray-200 border-r border-gray-700 rounded-tr-2xl">
                     <div className="p-4">
-                        <h2 className="text-xs font-semibold text-gray-500 mb-4">ACCOUNT</h2>
+                        <h2 className="text-xs font-semibold text-gray-500 mb-4">{getLanguageText(language, "settings.account.title")}</h2>
                         <NavLink to="/settings/account" className={({ isActive }) =>
                             `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">manage_accounts</span>
                             </div>
-                            <span className='flex-1 ms-3 whitespace-nowrap'>My Account</span>
+                            <span className='flex-1 ms-3 whitespace-nowrap'>{getLanguageText(language, "settings.account.account.title")}</span>
                         </NavLink>
                         <NavLink to="/settings/connectedaccounts" className={({ isActive }) =>
                             `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
@@ -30,7 +34,7 @@ const SettingsPage = () => {
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">link</span>
                             </div>
-                            <span className='flex-1 ms-3 whitespace-nowrap'>Connected Accounts</span>
+                            <span className='flex-1 ms-3 whitespace-nowrap'>{getLanguageText(language, "settings.account.connected.title")}</span>
                         </NavLink>
                         <NavLink to="/settings/language" className={({ isActive }) =>
                             `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
@@ -42,16 +46,16 @@ const SettingsPage = () => {
                         </NavLink>
                     </div>
                     <div className="p-4">
-                        <h2 className="text-xs font-semibold text-gray-500 mb-4">CLIENT SETTINGS</h2>
+                        <h2 className="text-xs font-semibold text-gray-500 mb-4">ClientTitle</h2>
                         <NavLink to="/settings/general" className={({ isActive }) =>
                             `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">settings</span>
                             </div>
-                            <span className='flex-1 ms-3 whitespace-nowrap'>General Settings</span>
+                            <span className='flex-1 ms-3 whitespace-nowrap'>Connected</span>
                         </NavLink>
-                        <NavLink to="/settings/apperance" className={({ isActive }) =>
+                        <NavLink to="/settings/appearance" className={({ isActive }) =>
                             `flex py-2 text-sm ${isActive ? 'text-purple-400 hover:text-purple-300' : 'text-gray-200 hover:text-white'}`
                         }>
                             <div className="flex-shrink-0 w-5 h-5">
@@ -73,7 +77,7 @@ const SettingsPage = () => {
                             <div className="flex-shrink-0 w-5 h-5">
                                 <span className="material-symbols-rounded">public</span>
                             </div>
-                            <span className='flex-1 ms-3 whitespace-nowrap'>Web</span>
+                            <span className='flex-1 ms-3 whitespace-nowrap'>{getLanguageText(language, "settings.client.web.title")}</span>
                         </NavLink>
                     </div>
                 </nav>
@@ -85,7 +89,7 @@ const SettingsPage = () => {
                         <Route path="language" element={<LanguageSettings />} />
 
                         <Route path="general" element={<GeneralSettings />} />
-                        <Route path="apperance" element={<ApperanceSettings />} />
+                        <Route path="appearance" element={<AppearanceSettings />} />
                         <Route path="security" element={<SecuritySettings />} />
                         <Route path="web" element={<WebSettings />} />
                     </Routes>

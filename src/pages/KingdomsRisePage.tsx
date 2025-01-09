@@ -1,20 +1,10 @@
 import { NavLink, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import { getLanguageText } from '../functions/getLanguageText';
-import { getSettings } from '../functions/getSettings';
 
 const KingdomsRise = () => {
-    const [currentLanguage, setCurrentLanguage] = useState<string>("en");
-
-    useEffect(() => {
-        try {
-            const language = getSettings("language") || "en";
-            setCurrentLanguage(language);
-        } catch (error) {
-            console.error("Error loading language setting:", error);
-        }
-    }, []);
-
+    const { language } = useLanguage(); // Get the language from the context
     const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const location = useLocation();
@@ -35,6 +25,7 @@ const KingdomsRise = () => {
 
     return (
         <div className="flex flex-col items-center justify-start h-full bg-gray-600 text-white p-6">
+            {/* Game Banner */}
             <div className="relative w-full max-w-4xl h-60 bg-gray-700 rounded-lg overflow-hidden mb-4">
                 <img
                     src="/KingdomsRiseBanner.png"
@@ -43,23 +34,26 @@ const KingdomsRise = () => {
                 />
             </div>
 
+            {/* Game Title and Version Info */}
             <div className="w-full max-w-4xl text-center mb-4">
                 <h1 className="text-4xl font-extrabold">Kingdom's Rise</h1>
                 <p className="text-gray-400">
-                    {getLanguageText(currentLanguage, "universal.headers.version")} 1.0.0
+                    {getLanguageText(language, "universal.headers.version")} 1.0.0
                 </p>
             </div>
 
+            {/* Play Button */}
             <div className="w-full max-w-4xl flex items-center justify-between mb-4">
                 <button
                     onClick={() => alert("Launching Kingdom's Rise...")}
                     className="flex items-center bg-green-600 hover:bg-green-500 text-white py-2 px-6 rounded-lg font-semibold transition-colors"
                 >
                     <span className="mr-2 material-symbols-rounded">play_arrow</span>
-                    {getLanguageText(currentLanguage, "universal.buttons.playbutton")}
+                    {getLanguageText(language, "universal.buttons.playbutton")}
                 </button>
             </div>
 
+            {/* Tabs Navigation with Sliding Bottom Border */}
             <div className="relative w-full max-w-4xl flex justify-start border-b border-gray-700 mb-4">
                 <NavLink
                     to="overview"
@@ -69,7 +63,7 @@ const KingdomsRise = () => {
                     ref={(el) => (navRefs.current[0] = el)}
                     onClick={() => handleNavClick(0)}
                 >
-                    {getLanguageText(currentLanguage, "universal.headers.overviewheader")}
+                    {getLanguageText(language, "universal.headers.overviewheader")}
                 </NavLink>
                 <NavLink
                     to="requirements"
@@ -79,9 +73,10 @@ const KingdomsRise = () => {
                     ref={(el) => (navRefs.current[1] = el)}
                     onClick={() => handleNavClick(1)}
                 >
-                    {getLanguageText(currentLanguage, "universal.headers.requirementsheader")}
+                    {getLanguageText(language, "universal.headers.requirementsheader")}
                 </NavLink>
 
+                {/* Animated Border */}
                 <div
                     className="absolute bottom-0 h-1 bg-purple-400 transition-all duration-300 ease-in-out"
                     style={{
@@ -91,6 +86,7 @@ const KingdomsRise = () => {
                 ></div>
             </div>
 
+            {/* Routes for Tabs */}
             <div className="w-full max-w-4xl bg-gray-700 p-6 rounded-lg shadow-lg">
                 <Routes>
                     <Route index element={<Navigate to="overview" replace />} />
@@ -99,9 +95,11 @@ const KingdomsRise = () => {
                         element={
                             <div>
                                 <h2 className="text-2xl font-bold mb-2">
-                                    {getLanguageText(currentLanguage, "universal.headers.overviewheader")}
+                                    {getLanguageText(language, "universal.headers.overviewheader")}
                                 </h2>
-                                <p className="text-gray">{getLanguageText(currentLanguage, "pages.kingdomsrisepage.overviewtext")}</p>
+                                <p className="text-gray-300">
+                                    {getLanguageText(language, "pages.kingdomsrisepage.overviewtext")}
+                                </p>
                             </div>
                         }
                     />
@@ -110,9 +108,11 @@ const KingdomsRise = () => {
                         element={
                             <div>
                                 <h2 className="text-2xl font-bold mb-2">
-                                    {getLanguageText(currentLanguage, "universal.headers.requirementsheader")}
+                                    {getLanguageText(language, "universal.headers.requirementsheader")}
                                 </h2>
-                                <p className="text-gray">{getLanguageText(currentLanguage, "pages.kingdomsrisepage.requirementstext")}</p>
+                                <p className="text-gray-300">
+                                    {getLanguageText(language, "pages.kingdomsrisepage.requirementstext")}
+                                </p>
                             </div>
                         }
                     />
