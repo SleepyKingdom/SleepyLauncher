@@ -1,7 +1,11 @@
+import { useLanguage } from '../../context/LanguageContext';
+import { getLanguageText } from '../../functions/getLanguageText';
+
 const ConnectedAccounts = () => {
+    const { language } = useLanguage();
     return (
         <>
-            <h1 className="text-2xl font-bold text-gray-100 mb-6">Connected Accounts</h1>
+            <h1 className="text-2xl font-bold text-gray-100 mb-6">{getLanguageText(language, "settings.account.connected.title")}</h1>
 
             {/* Accounts Section */}
             <div className="space-y-6">
@@ -16,17 +20,17 @@ const ConnectedAccounts = () => {
                         <div>
                             <h2 className="text-lg font-semibold text-gray-100">Discord</h2>
                             <p className="text-gray-400 text-sm">
-                                Connected as Lunartyx#1234
+                                {getLanguageText(language, "settings.account.connected.dc")} Lunartyx#1234
                             </p>
                         </div>
                     </div>
                     <div>
                         {true /* This condition should toggle the button */}
                         <button className="bg-red-500 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-red-600">
-                            Disconnect
+                            {getLanguageText(language, "settings.account.connected.disconnect")}
                         </button>
                         <button className="bg-blue-600 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-blue-700">
-                            Connect
+                            {getLanguageText(language, "settings.account.connected.connect")}
                         </button>
                     </div>
                 </div>
@@ -42,17 +46,17 @@ const ConnectedAccounts = () => {
                         <div>
                             <h2 className="text-lg font-semibold text-gray-100">Microsoft</h2>
                             <p className="text-gray-400 text-sm">
-                                Connected to your Microsoft account
+                                {getLanguageText(language, "settings.account.connected.ms")}
                             </p>
                         </div>
                     </div>
                     <div>
                         {false /* This condition should toggle the button */}
                         <button className="bg-red-500 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-red-600">
-                            Disconnect
+                            {getLanguageText(language, "settings.account.connected.disconnect")}
                         </button>
                         <button className="bg-blue-600 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-blue-700">
-                            Connect
+                            {getLanguageText(language, "settings.account.connected.connect")}
                         </button>
                     </div>
                 </div>

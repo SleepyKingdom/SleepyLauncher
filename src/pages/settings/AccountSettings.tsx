@@ -1,15 +1,22 @@
+import { useLanguage } from '../../context/LanguageContext';
+import { getLanguageText } from '../../functions/getLanguageText';
+
+
+
+
 interface AccountSettingsProps {
     profilePic?: string; // optional prop with string type
 }
 
 const AccountSettings: React.FC<AccountSettingsProps> = ({ profilePic }) => {
+    const { language } = useLanguage();
     return (
         <>
             {/* Header with title and Edit Profile button */}
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold text-gray-100">My Account</h1>
+                <h1 className="text-2xl font-bold text-gray-100">{getLanguageText(language, "settings.account.account.title")}</h1>
                 <button className="bg-blue-600 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-blue-700">
-                    Edit Profile
+                    {getLanguageText(language, "settings.account.account.editprofile")}
                 </button>
             </div>
 
@@ -36,25 +43,25 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({ profilePic }) => {
             <div className="space-y-4">
                 {/* Display Name */}
                 <div className="bg-gray-700 p-4 rounded-md">
-                    <p className="text-gray-500 text-sm">Display Name</p>
+                    <p className="text-gray-500 text-sm">{getLanguageText(language, "settings.account.account.dname")}</p>
                     <p className="text-gray-200 font-medium">Lunartyx</p>
                 </div>
 
                 {/* User Name */}
                 <div className="bg-gray-700 p-4 rounded-md">
-                    <p className="text-gray-500 text-sm">User Name</p>
+                    <p className="text-gray-500 text-sm">{getLanguageText(language, "settings.account.account.uname")}</p>
                     <p className="text-gray-200 font-medium">@lunartyx</p>
                 </div>
 
                 {/* Email */}
                 <div className="bg-gray-700 p-4 rounded-md">
-                    <p className="text-gray-500 text-sm">Email</p>
+                    <p className="text-gray-500 text-sm">{getLanguageText(language, "settings.account.account.email")}</p>
                     <p className="text-gray-200 font-medium">{"dominik@urbanetz.li"}</p>
                 </div>
 
                 {/* Phone Number */}
                 <div className="bg-gray-700 p-4 rounded-md">
-                    <p className="text-gray-500 text-sm">Phone Number</p>
+                    <p className="text-gray-500 text-sm">{getLanguageText(language, "settings.account.account.mobile")}</p>
                     <p className="text-gray-200 font-medium">******2390</p>
                 </div>
             </div>
@@ -65,7 +72,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({ profilePic }) => {
             {/* Authentication Section */}
             <div className="space-y-3">
                 <button className="w-full bg-blue-600 text-white py-2 rounded-md transition duration-200 hover:bg-blue-700">
-                    Change Password
+                    {getLanguageText(language, "settings.account.account.passwordcng")}
                 </button>
             </div>
         </>

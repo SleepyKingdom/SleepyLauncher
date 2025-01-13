@@ -38,16 +38,20 @@
                         "uname": "User Name",
                         "email": "Email",
                         "mobile": "Phone Number",
+                        "editprofile": "Edit Profile",
                         "passwordcng": "Change Password"
                     },
                     "connected": {
                         "title": "Connected Accounts",
                         "dc": "Connected as",
-                        "ms": "Connected to your Microsoft account"
+                        "ms": "Connected to your Microsoft account",
+                        "connect": "Connect",
+                        "disconnect": "Disconnect"
                     }
                 },
                 "client": {
                     "title": "Client Settings",
+                    "title2": "Client",
                     "general": {
                         "title": "General Settings",
                         "client": "Client Settings",
@@ -104,6 +108,15 @@
                 }
             },
             "settings": {
+                "language": {
+                    "title": "Sprache",
+                    "title2": "Spracheinstellungen",
+                    "en": "Englisch",
+                    "de": "Deutsch",
+                    "fr": "Französisch",
+                    "sp": "Spanisch",
+                    "it": "Italienisch"
+                },
                 "account": {
                     "title": "Konto",
                     "account": {
@@ -112,25 +125,20 @@
                         "uname": "Benutzername",
                         "email": "E-Mail",
                         "mobile": "Telefonnummer",
-                        "passwordcng": "Passwort ändern"
+                        "passwordcng": "Passwort ändern",
+                        "editprofile": "Profil Bearbeiten"
                     },
                     "connected": {
                         "title": "Verknüpfte Konten",
                         "dc": "Verbunden als",
-                        "ms": "Mit deinem Microsoft-Konto verknüpft"
-                    },
-                    "language": {
-                        "title": "Sprache",
-                        "title2": "Spracheinstellungen",
-                        "en": "Englisch",
-                        "de": "Deutsch",
-                        "fr": "Französisch",
-                        "sp": "Spanisch",
-                        "it": "Italienisch"
+                        "ms": "Mit deinem Microsoft-Konto verknüpft",
+                        "connect": "Verbinden",
+                        "disconnect": "Trennen"
                     }
                 },
                 "client": {
                     "title": "Client-Einstellungen",
+                    "title2": "Client",
                     "general": {
                         "title": "Allgemeine Einstellungen",
                         "client": "Client-Einstellungen",
@@ -139,7 +147,7 @@
                     },
                     "appearance": {
                         "title": "Erscheinungsbild",
-                        "title2": "Einstellungen für das Erscheinungsbild",
+                        "title2": "Erscheinungsbild",
                         "theme": "Design",
                         "dark": "Dunkel",
                         "light": "Hell"

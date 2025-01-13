@@ -18,7 +18,6 @@ const LanguageSettings = () => {
         { label: getLanguageText(language, "settings.language.it"), code: 'it' },
     ];
 
-    console.log(getLanguageText(language, "settings.language.title2"))
 
     return (
         <>
