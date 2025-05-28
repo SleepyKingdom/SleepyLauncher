@@ -18,7 +18,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": [
+      "./global.d.ts",
+      "./electron/electron-store.d.ts"
+      
+    ],
   },
   "include": ["src", "electron"],
   "references": [{ "path": "./tsconfig.node.json" }]

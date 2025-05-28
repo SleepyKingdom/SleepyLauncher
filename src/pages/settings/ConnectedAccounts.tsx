@@ -1,6 +1,17 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { getLanguageText } from '../../functions/getLanguageText';
 
+const handleMicrosoftLogin = async () => {
+    const result = await window.electronAPI.loginWithMicrosoft();
+    if (result.success) {
+        alert("Login successful! User token saved.");
+        console.log(result.profile); // Can show name later
+    } else {
+        alert("Login failed: " + result.error);
+    }
+};
+
+
 const ConnectedAccounts = () => {
     const { language } = useLanguage();
     return (
@@ -29,7 +40,7 @@ const ConnectedAccounts = () => {
                         <button className="bg-red-500 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-red-600">
                             {getLanguageText(language, "settings.account.connected.disconnect")}
                         </button>
-                        <button className="bg-blue-600 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-blue-700">
+                        <button onClick={handleMicrosoftLogin} className="bg-blue-600 text-white py-2 px-4 rounded-md transition duration-200 hover:bg-blue-700">
                             {getLanguageText(language, "settings.account.connected.connect")}
                         </button>
                     </div>

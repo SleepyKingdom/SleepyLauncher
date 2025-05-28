@@ -1,9 +1,33 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, } from 'electron';
 import { fileURLToPath } from 'node:url';
+import Store from 'electron-store';
 import path from 'path';
 import fs from 'fs';
 
+
+
+import { loginWithMicrosoft } from './auth/microsoftAuth.ts';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const store = new Store();
+
+// asfdubhnsjuhdfb
+let contextBridge;
+let ipcRenderer;
+
+async function loadElectron() {
+  const electron = await import('electron');
+  contextBridge = electron.contextBridge;
+  ipcRenderer = electron.ipcRenderer;
+}
+
+(async () => {
+  await loadElectron();
+  process.env.APP_ROOT = path.join(__dirname, "..");
+  const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
+  // continue setup...
+})();
 
 // Directory paths and server URLs
 process.env.APP_ROOT = path.join(__dirname, '..');
@@ -79,6 +103,20 @@ ipcMain.on('load-settings', (event) => {
       minimizeOnStart: false,
       third: false
     };
+  }
+});
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  loginWithMicrosoft: () => ipcRenderer.invoke('login-microsoft')
+});
+
+ipcMain.handle('login-microsoft', async () => {
+  try {
+    const tokenData = await loginWithMicrosoft();
+    store.set('auth', tokenData);
+    return { success: true, profile: tokenData };
+  } catch (error) {
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 });
 

@@ -2,13 +2,20 @@ import { defineConfig } from 'vite';
 import path from 'node:path';
 import electron from 'vite-plugin-electron/simple';
 import react from '@vitejs/plugin-react';
+import topLevelAwait from 'vite-plugin-top-level-await';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     outDir: 'dist', // Main Vite output (for renderer/frontend assets)
   },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'esnext'
+    },
+  },
   plugins: [
+    topLevelAwait(),
     react(),
     electron({
       main: {
