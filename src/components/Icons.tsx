@@ -6,7 +6,7 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ icon, className }) => {
     className = className + " material-symbols-rounded"
     console.log(className)
-    return <button><span className={className}>{icon}</span></button>;
+    return <div><span className={className}>{icon}</span></div>;
 };
 
 export default Icon;

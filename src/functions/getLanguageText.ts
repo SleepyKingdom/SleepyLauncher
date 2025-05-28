@@ -12,23 +12,92 @@ interface LanguageFile {
 
 const DEFAULT_LANGUAGE_FILE: LanguageFile = {
     language: {
-        en: {
-            pages: {
-                kingdomsrisepage: {
-                    overviewtext: "Default overview text",
-                    requirementstext: "Default requirements text",
-                },
+        "en": {
+            "pages": {
+                "kingdomsrisepage": {
+                    "overviewtext": "You can explore custom-generated worlds filled with new mobs, challenging dungeons, and powerful bosses. With immersive exploration and cooperative multiplayer options, KingdomsRise offers a fresh take on Minecraft, blending traditional sandbox gameplay with a structured RPG adventure.",
+                    "requirementstext": "KingdomsRise requires a modern PC with a decent graphics card, 8 GB RAM, and at least 10 GB of free disk space. Ensure your system is up-to-date with the latest Java runtime and a installed copy of Minecraft. <br />Also link your Microsoft account {'(with a valid minecraft license)'} via settings {'->'} connected accounts"
+                }
             },
-            universal: {
-                buttons: {
-                    playbutton: "Play",
-                },
-                headers: {
-                    version: "Version",
-                    overviewheader: "Game Overview",
-                    requirementsheader: "System Requirements",
-                },
+            "navigation": {
+                "settings": "Settings"
             },
+            "universal": {
+                "buttons": {
+                    "playbutton": "Play"
+                },
+                "headers": {
+                    "version": "Version",
+                    "overviewheader": "Game Overview",
+                    "requirementsheader": "System Requirements"
+                }
+            },
+            "settings": {
+                "language": {
+                    "title": "Language",
+                    "title2": "Language Settings",
+                    "en": "English",
+                    "de": "German",
+                    "fr": "French",
+                    "sp": "Spanish",
+                    "it": "Italian"
+                },
+                "account": {
+                    "title": "Account",
+                    "account": {
+                        "title": "My Account",
+                        "dname": "Display Name",
+                        "uname": "User Name",
+                        "email": "Email",
+                        "mobile": "Phone Number",
+                        "editprofile": "Edit Profile",
+                        "passwordcng": "Change Password"
+                    },
+                    "connected": {
+                        "title": "Connected Accounts",
+                        "dc": "Connected as",
+                        "ms": "Connected to your Microsoft account",
+                        "connect": "Connect",
+                        "disconnect": "Disconnect"
+                    }
+                },
+                "client": {
+                    "title": "Client Settings",
+                    "title2": "Client",
+                    "general": {
+                        "title": "General Settings",
+                        "client": "Client Settings",
+                        "dwnld": "Game Download Location",
+                        "mcexe": "Minecraft.exe Location"
+                    },
+                    "appearance": {
+                        "title": "Appearance",
+                        "title2": "Appearance Settings",
+                        "theme": "Theme",
+                        "dark": "Dark",
+                        "light": "Light"
+
+                    },
+                    "security": {
+                        "title": "Security",
+                        "title2": "Security Settings",
+                        "session": "Session Management",
+                        "logout": "Force Logout Everywhere",
+                        "2fa": "Two-Factor Authentication (2FA)",
+                        "mobile": "Enable via Mobile",
+                        "email": "Enable via Email",
+                        "authapp": "Enable via Authenticatior App"
+                    },
+                    "web": {
+                        "title": "Web",
+                        "title2": "Web Settings",
+                        "attention": "Attention",
+                        "leave": "You are about to leave SleepyLauncher and open the Webpage of SleepyKingdom.",
+                        "continue": "Open Browser"
+                    }
+
+                }
+            }
         },
     },
 };

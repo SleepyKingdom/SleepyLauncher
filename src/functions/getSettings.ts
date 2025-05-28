@@ -22,7 +22,7 @@ let cachedSettings: Settings | null = null;
 function getConfigPath(): string {
     const baseDir =
         process.platform === 'win32'
-            ? path.join(process.env.APPDATA || '', 'sleepy', 'SleepyLauncher')
+            ? path.join(process.env.APPDATA || '', '.sleepy', 'SleepyLauncher')
             : path.join(os.homedir(), '.sleepy', 'SleepyLauncher');
     return path.join(baseDir, 'settings.json');
 }
